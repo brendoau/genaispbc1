@@ -26,6 +26,10 @@ A browser window should open, asking you to sign in with your Adobe ID.
 
 Once you've logged in, you can close the browser window and go back to Terminal. 
 
+##  Add Lab 1 DA/EDS site creation Prep work here - from other notes done(TODO)
+TODO
+
+
 ## Create App Builder App
 
 ### Create the project in Developer Console
@@ -164,7 +168,13 @@ Expected: Step 1 shows 7 users, Step 2 updates EDS (requires EDS_ADMIN_TOKEN)
 
 **3. Verify EDS permissions:**
 - Check EDS Admin UI that users were synced
+
+![alt text](Xnip2025-11-20_23-52-47.jpg)
+
 - Verify you can publish site from DA authoring interface
+
+![alt text](Xnip2025-11-20_23-55-17.jpg)
+![alt text](Xnip2025-11-20_23-55-43.jpg)
 
 ### Test with Live Data (Optional)
 
