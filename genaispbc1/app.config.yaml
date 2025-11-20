@@ -48,3 +48,5 @@ application:
           EDS_ADMIN_TOKEN: $EDS_ADMIN_TOKEN
           # UMAPI proxy
           UMAPI_PROXY_URL: $UMAPI_PROXY_URL
+          # Mock data for testing/bootcamp (set to 'true' to avoid rate limits)
+          USE_MOCK_DATA: $USE_MOCK_DATA

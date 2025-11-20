@@ -106,7 +106,7 @@ inputs:
 
 ### Set env vars
 
-Set env vars in `.env` file: EDS_ORG, EDS_SITE, EDS_ADMIN_TOKEN, UMAPI_PROXY_URL
+Set env vars in `.env` file: EDS_ORG, EDS_SITE, EDS_ADMIN_TOKEN, UMAPI_PROXY_URL, USE_MOCK_DATA
 
 Example
 
@@ -115,7 +115,14 @@ UMAPI_PROXY_URL=https://391665-478whitegayal-stage.adobeioruntime.net/api/v1/web
 EDS_ORG=brendoaugh2
 EDS_SITE=genaibc1
 EDS_ADMIN_TOKEN=
+
+# Use mock UMAPI data to avoid rate limits (set to 'true' for bootcamp)
+# UMAPI has a limit of 25 requests/minute. With 30 attendees, mock data avoids rate limit issues.
+# Mock data is based on real EDS_Sandbox_Users group and only changes once daily.
+USE_MOCK_DATA=true
 ```
+
+**Important:** During the bootcamp, keep `USE_MOCK_DATA=true` to avoid UMAPI rate limits (25 req/min). With 30 attendees, everyone would hit rate limits testing simultaneously. Set to `false` only for production use or when you need live data.
 
 ### Add action code for get-umapi-users
 
@@ -137,21 +144,31 @@ aio app deploy
 
 ## Verify
 
-- Test `get-umapi-users` action
+### Test with Mock Data (Recommended for Bootcamp)
 
-  e.g. URL: https://391665-885ivorypike-stage.adobeioruntime.net/api/v1/web/genaispbc1/get-  umapi-users
+With `USE_MOCK_DATA=true` in `.env`, test without hitting UMAPI rate limits:
 
-- Test `update-eds-access` action
+**1. Test get-umapi-users:**
+```bash
+curl "https://391665-885ivorypike-stage.adobeioruntime.net/api/v1/web/genaispbc1/get-umapi-users" | jq '{_mock, group, count, first_user: .users[0]}'
+```
 
-  e.g. URL: https://391665-885ivorypike-stage.adobeioruntime.net/api/v1/web/genaispbc1/update-eds-access
+Expected: `_mock: true`, 7 users from EDS_Sandbox_Users group
 
-- Test end to end `sync-umapi-to-eds` action
+**2. Test sync-umapi-to-eds:**
+```bash
+curl "https://391665-885ivorypike-stage.adobeioruntime.net/api/v1/web/genaispbc1/sync-umapi-to-eds" | jq .
+```
 
-  e.g URL https://391665-885ivorypike-stage.adobeioruntime.net/api/v1/web/genaispbc1/sync-   umapi-to-eds
+Expected: Step 1 shows 7 users, Step 2 updates EDS (requires EDS_ADMIN_TOKEN)
 
-- Verify EDS publishing permissins have now been set
-
+**3. Verify EDS permissions:**
+- Check EDS Admin UI that users were synced
 - Verify you can publish site from DA authoring interface
+
+### Test with Live Data (Optional)
+
+Set `USE_MOCK_DATA=false` in `.env` and redeploy to use live UMAPI data. Note: 25 req/min rate limit applies.
 
 🎉🎉🎉 LAB Complete
 
