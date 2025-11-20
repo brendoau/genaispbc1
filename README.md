@@ -189,14 +189,14 @@ Expected: All 7 IMS user IDs in `admin.role.publish` array
 
 Or check EDS Admin UI that users were synced:
 
-![alt text](Xnip2025-11-20_23-52-47.jpg)
+![EDS Admin UI showing synced users](images/Xnip2025-11-20_23-52-47.jpg)
 
 **4. Test Publishing:**
 
 Verify you can publish site from DA authoring interface:
 
-![alt text](Xnip2025-11-20_23-55-17.jpg)
-![alt text](Xnip2025-11-20_23-55-43.jpg)
+![DA authoring interface](images/Xnip2025-11-20_23-55-17.jpg)
+![Publishing confirmation](images/Xnip2025-11-20_23-55-43.jpg)
 
 ### Test with Live Data (Optional)
 
