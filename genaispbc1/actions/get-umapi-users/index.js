@@ -36,6 +36,8 @@ async function main(params) {
     }
 
     const data = JSON.parse(text);
+    
+    const group = data.group || 'unknown';
 
     const users = (data.users || []).map(u => ({
       email: u.email,
