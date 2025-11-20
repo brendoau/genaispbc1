@@ -154,24 +154,46 @@ With `USE_MOCK_DATA=true` in `.env`, test without hitting UMAPI rate limits:
 
 **1. Test get-umapi-users:**
 ```bash
-curl "https://391665-885ivorypike-stage.adobeioruntime.net/api/v1/web/genaispbc1/get-umapi-users" | jq '{_mock, group, count, first_user: .users[0]}'
+curl "https://391665-885ivorypike-stage.adobeioruntime.net/api/v1/web/genaispbc1/get-umapi-users" | jq '{_mock, group, count, access}'
 ```
 
 Expected: `_mock: true`, 7 users from EDS_Sandbox_Users group
 
-**2. Test sync-umapi-to-eds:**
+**2. Test sync-umapi-to-eds (End-to-End):**
 ```bash
 curl "https://391665-885ivorypike-stage.adobeioruntime.net/api/v1/web/genaispbc1/sync-umapi-to-eds" | jq .
 ```
 
-Expected: Step 1 shows 7 users, Step 2 updates EDS (requires EDS_ADMIN_TOKEN)
+Expected: Both steps succeed (requires EDS_ADMIN_TOKEN in .env)
+```json
+{
+  "step1": {
+    "group": "EDS_Sandbox_Users",
+    "count": 7
+  },
+  "step2": {
+    "message": "access.json updated successfully"
+  }
+}
+```
 
-**3. Verify EDS permissions:**
-- Check EDS Admin UI that users were synced
+**3. Verify EDS permissions were set:**
+
+Check via API:
+```bash
+curl "https://admin.hlx.page/config/<YOUR_ORG>/sites/<YOUR_SITE>/access.json" \
+  -H "x-auth-token: <YOUR_ADMIN_TOKEN>" | jq .
+```
+
+Expected: All 7 IMS user IDs in `admin.role.publish` array
+
+Or check EDS Admin UI that users were synced:
 
 ![alt text](Xnip2025-11-20_23-52-47.jpg)
 
-- Verify you can publish site from DA authoring interface
+**4. Test Publishing:**
+
+Verify you can publish site from DA authoring interface:
 
 ![alt text](Xnip2025-11-20_23-55-17.jpg)
 ![alt text](Xnip2025-11-20_23-55-43.jpg)
