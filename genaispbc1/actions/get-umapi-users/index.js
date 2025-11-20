@@ -117,15 +117,19 @@ async function main(params) {
     lastName: u.lastName || u.lastname || ''
   }));
 
-  // Simple EDS-style access JSON (you can adapt to your real schema)
+  // Get IMS user IDs from the data
+  const imsUserIds = data.imsUserIds || data.users.map(u => u.id).filter(Boolean);
+
+  // EDS access.json format - IMS user IDs go in publish array
   const access = {
-    version: 1,
-    group,
-    users: users.map(u => ({
-      email: u.email,
-      name: `${u.firstName} ${u.lastName}`.trim(),
-      role: 'author'
-    }))
+    admin: {
+      requireAuth: "true",
+      role: {
+        admin: [],
+        author: [],
+        publish: imsUserIds
+      }
+    }
   };
 
   return {

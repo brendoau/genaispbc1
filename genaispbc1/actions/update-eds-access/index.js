@@ -55,7 +55,7 @@ async function main(params) {
 
   try {
     const resp = await fetch(url, {
-      method: 'PUT',
+      method: 'POST',
       headers: {
         'x-auth-token': token,
         'Content-Type': 'application/json'
