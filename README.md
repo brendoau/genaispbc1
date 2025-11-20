@@ -119,18 +119,39 @@ EDS_ADMIN_TOKEN=
 
 ### Add action code for get-umapi-users
 
-Add to actions/get-umapi-users/index.js
+Add to actions/get-umapi-users/index.js (see example code in genaispbc1 folder)
 
 ### Add action code for update-eds-access
 
-Add to actions/update-eds-access/index.js
+Add to actions/update-eds-access/index.js (see example code in genaispbc1 folder)
 
 ### Add action code for sync-umapi-to-eds
 
-Add to actions/sync-umapi-to-eds/index.js
+Add to actions/sync-umapi-to-eds/index.js (see example code in genaispbc1 folder)
 
 ## Deploy Lab 1 actions
 
 ```
 aio app deploy
 ```
+
+## Verify
+
+- Test `get-umapi-users` action
+
+  e.g. URL: https://391665-885ivorypike-stage.adobeioruntime.net/api/v1/web/genaispbc1/get-  umapi-users
+
+- Test `update-eds-access` action
+
+  e.g. URL: https://391665-885ivorypike-stage.adobeioruntime.net/api/v1/web/genaispbc1/update-eds-access
+
+- Test end to end `sync-umapi-to-eds` action
+
+  e.g URL https://391665-885ivorypike-stage.adobeioruntime.net/api/v1/web/genaispbc1/sync-   umapi-to-eds
+
+- Verify EDS publishing permissins have now been set
+
+- Verify you can publish site from DA authoring interface
+
+🎉🎉🎉 LAB Complete
+
