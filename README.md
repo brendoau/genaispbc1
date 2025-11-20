@@ -58,5 +58,79 @@ When prompted:
   - Sample actions - `Generic`
     - Name of sample application - `generic`
 
-### Lab 1
+## Implement Lab 1 Actions
 
+### Define actions via `app.config.yaml` under `actions`
+
+```
+get-umapi-users:
+  function: actions/get-umapi-users/index.js
+  web: 'yes'
+  runtime: nodejs:22
+  inputs:
+    LOG_LEVEL: debug
+  annotations:
+    require-adobe-auth: false
+    final: true
+update-eds-access:
+  function: actions/update-eds-access/index.js
+  web: 'yes'
+  runtime: nodejs:22
+  inputs:
+    LOG_LEVEL: debug
+  annotations:
+    require-adobe-auth: false
+    final: true
+sync-umapi-to-eds:
+  function: actions/sync-umapi-to-eds/index.js
+  web: 'yes'
+  runtime: nodejs:22
+  inputs:
+    LOG_LEVEL: debug
+  annotations:
+    require-adobe-auth: false
+    final: true
+```
+
+### Define actions inputs via `app.config.yaml` below `actions`
+
+```
+inputs:
+  # EDS configuration
+  EDS_ORG: $EDS_ORG
+  EDS_SITE: $EDS_SITE
+  EDS_ADMIN_TOKEN: $EDS_ADMIN_TOKEN
+  # UMAPI proxy
+  UMAPI_PROXY_URL: $UMAPI_PROXY_URL
+```
+
+### Set env vars
+
+Set env vars in `.env` file: EDS_ORG, EDS_SITE, EDS_ADMIN_TOKEN, UMAPI_PROXY_URL
+
+Example
+
+```
+UMAPI_PROXY_URL=https://391665-478whitegayal-stage.adobeioruntime.net/api/v1/web/umapi-proxy-app/umapi-proxy-action?secret=<ASK>
+EDS_ORG=brendoaugh2
+EDS_SITE=genaibc1
+EDS_ADMIN_TOKEN=
+```
+
+### Add action code for get-umapi-users
+
+Add to actions/get-umapi-users/index.js
+
+### Add action code for update-eds-access
+
+Add to actions/update-eds-access/index.js
+
+### Add action code for sync-umapi-to-eds
+
+Add to actions/sync-umapi-to-eds/index.js
+
+## Deploy Lab 1 actions
+
+```
+aio app deploy
+```
