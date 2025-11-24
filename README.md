@@ -9,10 +9,12 @@ In this lab, you will:
 3. Harden EDS to restrict preview and publishing to only an admin + specific users from an IMS group.
 4. Utilize App Builder to create runtime actions that will leverage the [UMAPI API](https://developer.adobe.com/umapi/) and the [AEM Admin API](https://www.aem.live/docs/admin.html) to automate the hardening of preview and publishing permissions to users from a specific IMS group.
 
+```mermaid
 graph LR
     A[App Builder] -->|1. Get IMS group user| B[User Management API]
     B -->|2. Return user list| A
     A -->|3. Update EDS publishing access<br/>with IMS user IDs| C[EDS Admin API]
+```
 
 ## Concepts / References
 
