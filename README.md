@@ -11,7 +11,7 @@ In this lab, you will:
 
 ```mermaid
 graph LR
-    A[App Builder] -->|1. Get IMS group user| B[User Management API]
+    A[App Builder] -->|1. Get IMS group users| B[User Management API]
     B -->|2. Return user list| A
     A -->|3. Update EDS publishing access<br/>with IMS user IDs| C[EDS Admin API]
 ```
