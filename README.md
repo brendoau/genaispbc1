@@ -37,58 +37,58 @@ Once you've logged in, you can close the browser window and go back to Terminal.
 1. Sign up for new github account or use an existing.
 2. Clone the boilerplate [https://github.com/adobe/aem-boilerplate](https://github.com/adobe/aem-boilerplate)
 
-    ![alt text](image_1763012440317_0.png)
-    ![alt text](image_1763012474886_0.png)
+    ![alt text](images/image_1763012440317_0.png)
+    ![alt text](images/image_1763012474886_0.png)
 
 3. Set repo to public.
 4. Install the [AEM Code Sync](https://github.com/apps/aem-code-sync) on your repository.
     
-    ![alt text](image_1763012522803_0.png)
+    ![alt text](images/image_1763012522803_0.png)
 
 5. In the `Repository access` settings of the AEM Code Sync App, make sure you select `Only select Repositories` (not `All Repositories`). Then select your newly created repository, and click `Save`.
 
-    ![alt text](image_1763012548047_0.png)
+    ![alt text](images/image_1763012548047_0.png)
 
-    ![alt text](image_1763012629496_0.png)
+    ![alt text](images/image_1763012629496_0.png)
 
 6. Check new website running on `https://<branch>--<repo>--<owner>.aem.page/` In the example above that’s `https://main--mysite--aemtutorial.aem.page/`
 
-    ![alt text](image_1763012800529_0.png)
-    ![alt text](image_1763012808374_0.png)
+    ![alt text](images/image_1763012800529_0.png)
+    ![alt text](images/image_1763012808374_0.png)
 
 ### Verify EDS site admins using User Admin Tool
 
 - https://tools.aem.live/
 - https://www.aem.live/docs/config-service-setup
 
-  ![alt text](image_1763076534000_0.png)
+  ![alt text](images/image_1763076534000_0.png)
 
 ### Add Project
 
-  ![alt text](image_1763076766184_0.png)
-  ![alt text](image_1763076785448_0.png)
+  ![alt text](images/image_1763076766184_0.png)
+  ![alt text](images/image_1763076785448_0.png)
 
-  ![alt text](image_1763080129428_0.png)  
+  ![alt text](images/image_1763080129428_0.png)  
 
 ### Edit, Preview and Publish Content in Document Authoring
 
 1. Navigate to Author on [https://da.live/](https://da.live/) and find the example content.
 
-  ![alt text](image_1763079894381_0.png)
+  ![alt text](images/image_1763079894381_0.png)
 
 2. Add new https://da.live/start
 
-  ![alt text](image_1763079935465_0.png)
-  ![alt text](image_1763080085793_0.png)
+  ![alt text](images/image_1763079935465_0.png)
+  ![alt text](images/image_1763080085793_0.png)
 
 3. Edit index.html
 
-  ![alt text](image_1763080176950_0.png)
+  ![alt text](images/image_1763080176950_0.png)
 
 4. Preview and Publish
 
-  ![alt text](image_1763080183776_0.png)
-  ![alt text](image_1763080191521_0.png)
+  ![alt text](images/image_1763080183776_0.png)
+  ![alt text](images/image_1763080191521_0.png)
 
 
 > At this point we can edit preview and publish content as ANY user. DA and EDS permissions are fully open
