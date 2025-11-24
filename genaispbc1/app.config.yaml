@@ -41,6 +41,37 @@ application:
             annotations:
               require-adobe-auth: false
               final: true
+          worker:
+            function: actions/worker/index.js
+            web: 'yes'
+            runtime: nodejs:22
+            limits:
+              concurrency: 10
+              memory: 1024 # in mb - optimized for pre-warmed containers
+              timeout: 3600000 # in ms
+            inputs:
+              AZURE_OPENAI_API_KEY: $AZURE_OPENAI_API_KEY
+              AZURE_OPENAI_ENDPOINT: $AZURE_OPENAI_ENDPOINT
+              AEM_TARGET_URL: $AEM_TARGET_URL
+              GDAM_TOKEN: $GDAM_TOKEN
+            annotations:
+              require-adobe-auth: true
+          ai-asset-tagging:
+            function: actions/ai-asset-tagging/index.js
+            web: 'yes'
+            runtime: nodejs:22
+            limits:
+              concurrency: 5
+              memory: 1024 # in mb - optimized for pre-warmed containers
+              timeout: 300000 # 5 minutes for AI processing
+            inputs:
+              AZURE_OPENAI_API_KEY: $AZURE_OPENAI_API_KEY
+              AZURE_OPENAI_ENDPOINT: $AZURE_OPENAI_ENDPOINT
+              AEM_TARGET_URL: $AEM_TARGET_URL
+              GDAM_TOKEN: $GDAM_TOKEN
+              LOG_LEVEL: $LOG_LEVEL
+            annotations:
+              require-adobe-auth: false
         inputs:
           # EDS configuration
           EDS_ORG: $EDS_ORG
@@ -50,3 +81,11 @@ application:
           UMAPI_PROXY_URL: $UMAPI_PROXY_URL
           # Mock data for testing/bootcamp (set to 'true' to avoid rate limits)
           USE_MOCK_DATA: $USE_MOCK_DATA
+          # Azure OpenAI configuration
+          AZURE_OPENAI_API_KEY: $AZURE_OPENAI_API_KEY
+          AZURE_OPENAI_ENDPOINT: $AZURE_OPENAI_ENDPOINT
+          # AEM/GDAM configuration
+          AEM_TARGET_URL: $AEM_TARGET_URL
+          GDAM_TOKEN: $GDAM_TOKEN
+          # Logging
+          LOG_LEVEL: $LOG_LEVEL

@@ -4,6 +4,9 @@
   "private": true,
   "dependencies": {
     "@adobe/aio-sdk": "^6",
+    "@adobe/asset-compute-sdk": "^4.6.2",
+    "@adobe/asset-compute-xmp": "^1.0.0",
+    "@adobe/jwt-auth": "^2.0.0",
     "node-fetch": "^2.6.0"
   },
   "devDependencies": {
