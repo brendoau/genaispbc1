@@ -26,9 +26,91 @@ A browser window should open, asking you to sign in with your Adobe ID.
 
 Once you've logged in, you can close the browser window and go back to Terminal. 
 
-##  Add Lab 1 DA/EDS site creation Prep work here - from other notes done(TODO)
-TODO
+## Create Document Authoring (DA) and Edge Delivery Services (EDS) AEM project
 
+1. Go to https://www.aem.live/
+2. Click **Create your site**
+3. You end up here https://www.aem.live/developer/tutorial.  Follow this tutorial.
+
+### Create boilerplate GitHub repo
+
+1. Sign up for new github account or use an existing.
+2. Clone the boilerplate [https://github.com/adobe/aem-boilerplate](https://github.com/adobe/aem-boilerplate)
+
+    ![alt text](image_1763012440317_0.png)
+    ![alt text](image_1763012474886_0.png)
+
+3. Set repo to public.
+4. Install the [AEM Code Sync](https://github.com/apps/aem-code-sync) on your repository.
+    
+    ![alt text](image_1763012522803_0.png)
+
+5. In the `Repository access` settings of the AEM Code Sync App, make sure you select `Only select Repositories` (not `All Repositories`). Then select your newly created repository, and click `Save`.
+
+    ![alt text](image_1763012548047_0.png)
+
+    ![alt text](image_1763012629496_0.png)
+
+6. Check new website running on `https://<branch>--<repo>--<owner>.aem.page/` In the example above that’s `https://main--mysite--aemtutorial.aem.page/`
+
+    ![alt text](image_1763012800529_0.png)
+    ![alt text](image_1763012808374_0.png)
+
+### Verify EDS site admins using User Admin Tool
+
+- https://tools.aem.live/
+- https://www.aem.live/docs/config-service-setup
+
+  ![alt text](image_1763076534000_0.png)
+
+### Add Project
+
+  ![alt text](image_1763076766184_0.png)
+  ![alt text](image_1763076785448_0.png)
+
+  ![alt text](image_1763080129428_0.png)  
+
+### Edit, Preview and Publish Content in Document Authoring
+
+1. Navigate to Author on [https://da.live/](https://da.live/) and find the example content.
+
+  ![alt text](image_1763079894381_0.png)
+
+2. Add new https://da.live/start
+
+  ![alt text](image_1763079935465_0.png)
+  ![alt text](image_1763080085793_0.png)
+
+3. Edit index.html
+
+  ![alt text](image_1763080176950_0.png)
+
+4. Preview and Publish
+
+  ![alt text](image_1763080183776_0.png)
+  ![alt text](image_1763080191521_0.png)
+
+
+> At this point we can edit preview and publish content as ANY user. DA and EDS permissions are fully open
+
+### Harden DA permissions
+
+https://docs.da.live/administrators/guides/permissions
+
+1. Add your admin user to DA permissions (config and authoring)
+2. Add all users from IMS Group ??? in `acs-apac-internal` group to DA permissions (config and authoring)
+
+> At this point the admin user and anyone in the IMS group will be able to author in DA, but not preview or publish!
+
+### Harden EDS permissions
+
+#### View current state of EDS site access using EDS Admin API
+
+#### Restrict access to specific user
+
+#### Verify only this user can preview publish and others cannot
+
+> At this point you should have an understanding of the concepts that drive DA and EDS permissions.  Next we will move onto automating this configuration at scale.
 
 ## Create App Builder App
 
