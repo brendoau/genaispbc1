@@ -14,39 +14,3 @@ application:
             annotations:
               require-adobe-auth: true
               final: true
-          get-umapi-users:
-            function: actions/get-umapi-users/index.js
-            web: 'yes'
-            runtime: nodejs:22
-            inputs:
-              LOG_LEVEL: debug
-            annotations:
-              require-adobe-auth: false
-              final: true
-          update-eds-access:
-            function: actions/update-eds-access/index.js
-            web: 'yes'
-            runtime: nodejs:22
-            inputs:
-              LOG_LEVEL: debug
-            annotations:
-              require-adobe-auth: false
-              final: true
-          sync-umapi-to-eds:
-            function: actions/sync-umapi-to-eds/index.js
-            web: 'yes'
-            runtime: nodejs:22
-            inputs:
-              LOG_LEVEL: debug
-            annotations:
-              require-adobe-auth: false
-              final: true
-        inputs:
-          # EDS configuration
-          EDS_ORG: $EDS_ORG
-          EDS_SITE: $EDS_SITE
-          EDS_ADMIN_TOKEN: $EDS_ADMIN_TOKEN
-          # UMAPI proxy
-          UMAPI_PROXY_URL: $UMAPI_PROXY_URL
-          # Mock data for testing/bootcamp (set to 'true' to avoid rate limits)
-          USE_MOCK_DATA: $USE_MOCK_DATA
