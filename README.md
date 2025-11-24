@@ -1,30 +1,53 @@
-# APAC C&C GenAI Bootcamp 1
+# APAC C&C GenAI Sub-practice - Bootcamp 1 - Lab 1
+
+## Lab 1 Overview
+
+In this lab, you will:
+
+1. Create an AEM Edge Delivery Services (EDS) site, using Document Authoring (DA) for the  content authoring method.
+2. Harden DA to restrict authoring to only an admin + specific users from an IMS group.
+3. Harden EDS to restrict preview and publishing to only an admin + specific users from an IMS group.
+4. Utilize App Builder to create runtime actions that will leverage the [UMAPI API](https://developer.adobe.com/umapi/) and the [AEM Admin API](https://www.aem.live/docs/admin.html) to automate the hardening of preview and publishing permissions to users from a specific IMS group.
+
+graph LR
+    A[App Builder] -->|1. Get IMS group user| B[User Management API]
+    B -->|2. Return user list| A
+    A -->|3. Update EDS publishing access<br/>with IMS user IDs| C[EDS Admin API]
+
+## Concepts / References
+
+### DA / EDS
+- https://www.aem.live/developer/tutorial
+- https://www.aem.live/docs/config-service-setup#create-your-organization
+- https://tools.aem.live
+- https://da.live
+- https://docs.da.live/administrators/guides/permissions
+- https://docs.da.live/administrators/guides/permissions#a-common-pitfall
+- https://www.aem.live/docs/authentication-setup-authoring
+- https://www.aem.live/docs/admin.html
+
+### App Builder
+- https://developer.adobe.com/app-builder/docs/get_started/runtime_getting_started
+
+### User Management API
+- https://developer.adobe.com/umapi/
+- https://adobe-apiplatform.github.io/umapi-documentation/en/
 
 ## Prerequisites
 
-### 1. Install Node.js and npm
+### Install Node.js and npm
 
 ```
 node --version
 npm --version
 ```
 
-### 2. Install Adobe I/O CLI (aio)
+### Install Adobe I/O CLI (aio)
 
 ```
 npm install -g @adobe/aio-cli
 aio --version
 ```
-
-### 3. Sign in from the CLI
-
-```
-aio login
-```
-
-A browser window should open, asking you to sign in with your Adobe ID. 
-
-Once you've logged in, you can close the browser window and go back to Terminal. 
 
 ## Create Document Authoring (DA) and Edge Delivery Services (EDS) AEM project
 
@@ -113,6 +136,17 @@ https://docs.da.live/administrators/guides/permissions
 > At this point you should have an understanding of the concepts that drive DA and EDS permissions.  Next we will move onto automating this configuration at scale.
 
 ## Create App Builder App
+
+### Sign in from the CLI
+
+```
+aio login
+```
+
+A browser window should open, asking you to sign in with your Adobe ID. 
+
+Once you've logged in, you can close the browser window and go back to Terminal. 
+
 
 ### Create the project in Developer Console
 
