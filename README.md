@@ -16,24 +16,29 @@ graph LR
     A -->|3. Update EDS publishing access<br/>with IMS user IDs| C[EDS Admin API]
 ```
 
-## Concepts / References
+## Key Resources
 
-### DA / EDS
-- https://www.aem.live/developer/tutorial
-- https://www.aem.live/docs/config-service-setup#create-your-organization
-- https://tools.aem.live
-- https://da.live
-- https://docs.da.live/administrators/guides/permissions
-- https://docs.da.live/administrators/guides/permissions#a-common-pitfall
-- https://www.aem.live/docs/authentication-setup-authoring
-- https://www.aem.live/docs/admin.html
+### AEM Edge Delivery Services (EDS)
+- [EDS Getting Started Tutorial](https://www.aem.live/developer/tutorial) - Complete setup guide
+- [EDS Admin API](https://www.aem.live/docs/admin.html) - API for managing site permissions
+- [EDS User Admin Tool](https://tools.aem.live) - Web UI for managing site access
 
-### App Builder
-- https://developer.adobe.com/app-builder/docs/get_started/runtime_getting_started
+### Document Authoring (DA)
+- [DA Authoring Interface](https://da.live) - Content editing platform
+- [DA Permissions Guide](https://docs.da.live/administrators/guides/permissions) - Configure user access and roles
 
-### User Management API
-- https://developer.adobe.com/umapi/
-- https://adobe-apiplatform.github.io/umapi-documentation/en/
+### Adobe App Builder
+- [Getting Started with Runtime](https://developer.adobe.com/app-builder/docs/get_started/runtime_getting_started) - App Builder basics
+- [Node.js Runtime Versions](https://developer.adobe.com/app-builder/docs/guides/runtime_guides/reference_docs/runtimes) - Supported Node.js versions
+- [Developer Console](https://developer.adobe.com/console) - Create and manage App Builder projects
+
+### User Management API (UMAPI)
+- [UMAPI Overview](https://developer.adobe.com/umapi/) - Getting started with User Management API
+- [UMAPI Documentation](https://adobe-apiplatform.github.io/umapi-documentation/en/) - Complete API reference
+
+### GitHub Resources
+- [AEM Boilerplate Template](https://github.com/adobe/aem-boilerplate) - Starter template for EDS sites
+- [AEM Code Sync App](https://github.com/apps/aem-code-sync) - Required GitHub app for EDS integration
 
 ## Prerequisites
 
