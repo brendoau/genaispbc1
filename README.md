@@ -149,7 +149,7 @@ Congratulations! You have a new EDS website running on `https://<branch>--<repo>
 ![alt text](images/image_1763012800529_0.png)
 ![alt text](images/image_1763012808374_0.png)
 
-### Understand what has just been created
+### What Just Happened: EDS Organization Setup
 
 As part of the process you just followed, an `aem.live` EDS org with the same name as your `github.com` org was created, and the github.com user who added the AEM Code Sync App will be added as admin.
 
@@ -196,7 +196,13 @@ You will see preview content pushed to the `.page` EDS site and published conten
 ![alt text](Xnip2025-11-25_21-15-19.jpg)
 ![alt text](Xnip2025-11-25_21-15-50.jpg)
 
-> At this point we can edit preview and publish content as ANY user. DA and EDS permissions are fully open.  To prove this, ask one of you bootcamp colleagues to browse to your DA authoring URL and preview and publish.  They will be able to!
+### What Just Happened: DA and EDS Permissions
+
+At this point, any user can log in to DA and author content for this site. Additionally, any user can preview and publish content to EDS.
+
+To prove this, ask one of your bootcamp colleagues to browse to your DA authoring URL, update content and then try to preview and publish. They will be able to!
+
+For an overview of the EDS ecosystem of access control, read https://docs.da.live/administrators/guides/permissions
 
 ### Harden DA permissions
 
