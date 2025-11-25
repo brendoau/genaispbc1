@@ -171,11 +171,11 @@ Click **Fetch**.
 
 ![alt text](Xnip2025-11-25_13-16-46.jpg)
 
-Click **Save** when prompted to add a new project.
+Click **Save** when prompted to add a new sidekick project.
 
 ![alt text](Xnip2025-11-25_13-17-41.jpg)
 
-You may get prompted to install the AEM Sidekick if you don't have it already installed.  Install this.
+You may get prompted to install the [AEM Sidekick](https://chromewebstore.google.com/detail/aem-sidekick/igkmdomcgoebiipaifhmpfjhbjccggml) if you don't have it already installed.  Install this.
 
 ![alt text](Xnip2025-11-25_13-23-26.jpg)
 
@@ -185,12 +185,13 @@ You will then need to sign in.
 
 ![alt text](Xnip2025-11-25_13-38-19.jpg)
 
-### Add Project
+TODO show how to create one
 
-![alt text](images/image_1763076766184_0.png)
-![alt text](images/image_1763076785448_0.png)
+#### Manage Projects
 
-![alt text](images/image_1763080129428_0.png)  
+You can always manage your sidekick projects by right-clicking the AEM Sidekick extension and selecting **Manage**.
+
+![alt text](Xnip2025-11-25_14-18-17.jpg)
 
 ### Edit, Preview and Publish Content in Document Authoring
 
