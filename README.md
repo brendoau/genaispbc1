@@ -165,7 +165,25 @@ Click User Admin
 
 ![alt text](images/image_1763076534000_0.png)
 
+Enter in your organization and site.  Where organization is your github org id - see above. The site is the name of the repo you created. 
 
+Click **Fetch**.
+
+![alt text](Xnip2025-11-25_13-16-46.jpg)
+
+Click **Save** when prompted to add a new project.
+
+![alt text](Xnip2025-11-25_13-17-41.jpg)
+
+You may get prompted to install the AEM Sidekick if you don't have it already installed.  Install this.
+
+![alt text](Xnip2025-11-25_13-23-26.jpg)
+
+You will then need to sign in.
+
+> **Important:** At this point, the only admin user for your EDS org is the GitHub user who installed the AEM Code Sync App (as mentioned earlier). You must sign in with an Adobe account that corresponds to this GitHub user. If you don't have a matching Adobe account, you will need to create one.
+
+![alt text](Xnip2025-11-25_13-38-19.jpg)
 
 ### Add Project
 
