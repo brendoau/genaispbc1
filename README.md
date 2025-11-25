@@ -39,10 +39,54 @@ graph LR
 
 ### Install Node.js and npm
 
-```
+Node.js version 20.7.0 or higher is required for Adobe App Builder. npm comes bundled with Node.js.
+
+> **Note:** Adobe App Builder officially supports the three latest Node.js versions (20, 22, 24). See [official runtime documentation](https://developer.adobe.com/app-builder/docs/guides/runtime_guides/reference_docs/runtimes) for the current supported versions.
+
+#### Mac Installation
+
+**Option 1: Using Homebrew (Recommended)**
+
+```bash
+# Install Homebrew if you don't have it
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Install Node.js (includes npm)
+brew install node@20
+
+# Verify installation
 node --version
 npm --version
 ```
+
+**Option 2: Using Official Installer**
+
+1. Go to [https://nodejs.org/](https://nodejs.org/)
+2. Download the LTS (Long Term Support) version for macOS
+3. Run the installer and follow the prompts
+4. Open Terminal and verify:
+
+```bash
+node --version
+npm --version
+```
+
+#### Windows Installation
+
+**Using Official Installer**
+
+1. Go to [https://nodejs.org/](https://nodejs.org/)
+2. Download the LTS (Long Term Support) version for Windows
+3. Run the `.msi` installer
+4. Follow the installation wizard (use default settings)
+5. Open Command Prompt or PowerShell and verify:
+
+```bash
+node --version
+npm --version
+```
+
+**Note:** You may need to restart your terminal/command prompt after installation for the commands to be recognized.
 
 ### Install Adobe I/O CLI (aio)
 
