@@ -157,68 +157,46 @@ As part of the process you just followed, an `aem.live` EDS org with the same na
 
 **Configuration Service** - It's important to know that there is a [Configuration Service](https://www.aem.live/docs/config-service-setup) used to manage various configurations in the EDS architecture. Common configuration tasks can be achieved using the [User Admin Tool](https://tools.aem.live/), however the same configuration can also be managed via the [AEM Admin API](https://www.aem.live/docs/admin.html#tag/orgConfig).
 
-### Verify EDS org admins using User Admin Tool
+### Edit, Preview and Publish Content in Document Authoring
 
-Go to https://tools.aem.live/
+Navigate to https://da.live.
 
-Click User Admin
+![alt text](Xnip2025-11-25_20-49-00.jpg)
 
-![alt text](images/image_1763076534000_0.png)
-
-Enter in your organization and site.  Where organization is your github org id - see above. The site is the name of the repo you created. 
-
-Click **Fetch**.
-
-![alt text](Xnip2025-11-25_13-16-46.jpg)
-
-Click **Save** when prompted to add a new sidekick project.
-
-![alt text](Xnip2025-11-25_13-17-41.jpg)
-
-You may get prompted to install the [AEM Sidekick](https://chromewebstore.google.com/detail/aem-sidekick/igkmdomcgoebiipaifhmpfjhbjccggml) if you don't have it already installed.  Install this.
-
-![alt text](Xnip2025-11-25_13-23-26.jpg)
-
-You will then need to sign in.
-
-> **Important:** At this point, the only admin user for your EDS org is the GitHub user who installed the AEM Code Sync App (as mentioned earlier). You must sign in with an Adobe account that corresponds to this GitHub user. If you don't have a matching Adobe account, you will need to create one.
-
-![alt text](Xnip2025-11-25_13-38-19.jpg)
+Click Sign in
 
 ![alt text](Xnip2025-11-25_19-59-36.jpg)  
 
-Once signed in, you should see the project signed in when selecting the avatar in the top-right.
+> **Important:** At this point, the only admin user for your EDS org is the GitHub user who installed the AEM Code Sync App (as mentioned earlier). You must sign in with an Adobe account that corresponds to this GitHub user. If you don't have a matching Adobe account, you will need to create one.
 
-![alt text](Xnip2025-11-25_20-12-15.jpg)
+![alt text](Xnip2025-11-25_20-59-56.jpg)
 
-#### Manage Projects
+Enter the URL for your site to get started - in the format https://main--site--org.aem.page as your created EDS site URL above.  Click ->
 
-You can always manage your sidekick projects by right-clicking the AEM Sidekick extension and selecting **Manage**.
+![alt text](Xnip2025-11-25_21-02-05.jpg)
 
-![alt text](Xnip2025-11-25_14-18-17.jpg)
+If already have other recent DA sites, then enter the EDS site URL as shown below.  Click ->
 
-### Edit, Preview and Publish Content in Document Authoring
+![alt text](Xnip2025-11-25_21-06-32.jpg)
 
-1. Navigate to Author on [https://da.live/](https://da.live/) and find the example content.
+You will now see the DA authoring page for your site
 
-  ![alt text](images/image_1763079894381_0.png)
+![alt text](Xnip2025-11-25_21-04-09.jpg)
 
-2. Add new https://da.live/start
+Edit the index page content.  For more information on authoring see https://da.live/docs.
 
-  ![alt text](images/image_1763079935465_0.png)
-  ![alt text](images/image_1763080085793_0.png)
+![alt text](images/image_1763080176950_0.png)
 
-3. Edit index.html
+Preview and Publish
 
-  ![alt text](images/image_1763080176950_0.png)
+![alt text](images/image_1763080183776_0.png)
 
-4. Preview and Publish
+You will see preview content pushed to the `.page` EDS site and published content pushed to `.live` EDS site.
 
-  ![alt text](images/image_1763080183776_0.png)
-  ![alt text](images/image_1763080191521_0.png)
+![alt text](Xnip2025-11-25_21-15-19.jpg)
+![alt text](Xnip2025-11-25_21-15-50.jpg)
 
-
-> At this point we can edit preview and publish content as ANY user. DA and EDS permissions are fully open
+> At this point we can edit preview and publish content as ANY user. DA and EDS permissions are fully open.  To prove this, ask one of you bootcamp colleagues to browse to your DA authoring URL and preview and publish.  They will be able to!
 
 ### Harden DA permissions
 
