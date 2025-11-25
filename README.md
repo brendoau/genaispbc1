@@ -169,7 +169,7 @@ Click Sign in
 
 > **Important:** At this point, the only admin user for your EDS org is the GitHub user who installed the AEM Code Sync App (as mentioned earlier). You must sign in with an Adobe account that corresponds to this GitHub user. If you don't have a matching Adobe account, you will need to create one.
 
-![alt text](Xnip2025-11-25_20-59-56.jpg)
+![alt text](Xnip2025-11-25_22-00-06.jpg)
 
 Enter the URL for your site to get started - in the format https://main--site--org.aem.page as your created EDS site URL above.  Click ->
 
@@ -203,6 +203,38 @@ At this point, any user can log in to DA and author content for this site. Addit
 To prove this, ask one of your bootcamp colleagues to browse to your DA authoring URL, update content and then try to preview and publish. They will be able to!
 
 For an overview of the EDS ecosystem of access control, read https://docs.da.live/administrators/guides/permissions
+
+### Setup and limit the ability to author content
+
+> For concepts please read -> https://docs.da.live/administrators/guides/permissions#ability-to-author-content
+
+Get your IMS Organization ID.  Use Admin Console to get your IMS organization ID.
+
+> The ID for `acs-apac-internal` is `09CF60665F98CEF90A495FF8`
+
+In your the permissions sheet of the DA organization config (https://da.live/config#/name-of-org/),
+add the following configuration.
+
+1. Add a sheet called `Permissions`.
+2. Add columns `path`,  `groups` and `actions`
+
+Populate the sheet as below.  NB the mix of org id and email only identities.  We are going to begin granting users of the `acs-apac-internal` org access to author in DA.  However we also don't want to blow away the existing access that exists for the email based identity (your github email) that was used to create the DA.
+
+| **path** | **groups** | **actions** |
+| -------- | ---------- | ----------- |
+| CONFIG | `4E0722F969166E3E0A495F98, <gh_email>` | write |
+| / + ** | `4E0722F969166E3E0A495F98, <gh_email>` | write |
+
+![alt text](Xnip2025-11-25_22-01-28.jpg)
+
+3. Click Save (paper plane)
+
+### Setup and limit the ability to preview and publish
+
+https://docs.da.live/administrators/guides/permissions#setup-and-limit-the-ability-to-preview-and-publish
+
+
+
 
 ### Harden DA permissions
 
