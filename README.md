@@ -95,10 +95,19 @@ npm --version
 
 ### Install Adobe I/O CLI (aio)
 
-```
+Install the `aio` CLI globally using npm:
+
+```bash
 npm install -g @adobe/aio-cli
+```
+
+Verify the installation:
+
+```bash
 aio --version
 ```
+
+> See the [official setup guide](https://developer.adobe.com/app-builder/docs/get_started/runtime_getting_started/setup) for more details on configuring the CLI.
 
 ## Create Document Authoring (DA) and Edge Delivery Services (EDS) AEM project
 
