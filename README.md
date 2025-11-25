@@ -208,9 +208,16 @@ For an overview of the EDS ecosystem of access control, read https://docs.da.liv
 
 > For concepts please read -> https://docs.da.live/administrators/guides/permissions#ability-to-author-content
 
-Get your IMS Organization ID.  Use Admin Console to get your IMS organization ID.
+#### Get your IMS Organization ID.
+Use Admin Console to get your IMS organization ID.
 
 > The ID for `acs-apac-internal` is `09CF60665F98CEF90A495FF8`
+
+#### Get your IMS ID.
+
+Follow this guide https://docs.da.live/administrators/guides/permissions#get-your-ims-userid
+
+#### Populate DA permissions sheet
 
 In your the permissions sheet of the DA organization config (https://da.live/config#/name-of-org/),
 add the following configuration.
@@ -218,14 +225,12 @@ add the following configuration.
 1. Add a sheet called `Permissions`.
 2. Add columns `path`,  `groups` and `actions`
 
-Populate the sheet as below.  NB the mix of org id and email only identities.  We are going to begin granting users of the `acs-apac-internal` org access to author in DA.  However we also don't want to blow away the existing access that exists for the email based identity (your github email) that was used to create the DA.
-
 | **path** | **groups** | **actions** |
 | -------- | ---------- | ----------- |
-| CONFIG | `4E0722F969166E3E0A495F98, <gh_email>` | write |
-| / + ** | `4E0722F969166E3E0A495F98, <gh_email>` | write |
+| CONFIG | `4E0722F969166E3E0A495F98@AdobeID` | write |
+| / + ** | `4E0722F969166E3E0A495F98@AdobeID` | write |
 
-![alt text](Xnip2025-11-25_22-01-28.jpg)
+![alt text](Xnip2025-11-25_22-08-11.jpg)
 
 3. Click Save (paper plane)
 
