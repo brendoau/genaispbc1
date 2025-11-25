@@ -111,40 +111,58 @@ aio --version
 
 ## Create Document Authoring (DA) and Edge Delivery Services (EDS) AEM project
 
-1. Go to https://www.aem.live/
-2. Click **Create your site**
-3. You end up here https://www.aem.live/developer/tutorial.  Follow this tutorial.
+Go to https://www.aem.live/
+
+Click **Create your site**
+
+You end up here https://www.aem.live/developer/tutorial.  Follow this tutorial.
 
 ### Create boilerplate GitHub repo
 
-1. Sign up for new github account or use an existing.
-2. Clone the boilerplate [https://github.com/adobe/aem-boilerplate](https://github.com/adobe/aem-boilerplate)
+Sign up for new github account or use an existing.
 
-    ![alt text](images/image_1763012440317_0.png)
-    ![alt text](images/image_1763012474886_0.png)
+Clone the boilerplate GitHub repo [https://github.com/adobe/aem-boilerplate](https://github.com/adobe/aem-boilerplate)
 
-3. Set repo to public.
-4. Install the [AEM Code Sync](https://github.com/apps/aem-code-sync) on your repository.
+Click the `Use this template button` and select `Create a new repository`, and select the user org that owns the repository
+
+  ![alt text](images/image_1763012440317_0.png)
+  ![alt text](image_1763012456611_0.png)
+  ![alt text](images/image_1763012474886_0.png)
+
+Set repo to public.
+
+Click Create repository
+
+### Install AEM Code Sync
+
+Install the [AEM Code Sync](https://github.com/apps/aem-code-sync) on your repository.
     
-    ![alt text](images/image_1763012522803_0.png)
+  ![alt text](images/image_1763012522803_0.png)
 
-5. In the `Repository access` settings of the AEM Code Sync App, make sure you select `Only select Repositories` (not `All Repositories`). Then select your newly created repository, and click `Save`.
+In the `Repository access` settings of the AEM Code Sync App, make sure you select `Only select Repositories` (not `All Repositories`). Then select your newly created repository, and click `Save`.
 
-    ![alt text](images/image_1763012548047_0.png)
+  ![alt text](images/image_1763012548047_0.png)
+  ![alt text](images/image_1763012629496_0.png)
 
-    ![alt text](images/image_1763012629496_0.png)
+Congratulations! You have a new EDS website running on `https://<branch>--<repo>--<owner>.aem.page/`.  Check it is running.  In the example above that’s https://main--genaibc1--brendoaugh2.aem.page and https://main--genaibc1--brendoaugh2.aem.live
 
-6. Check new website running on `https://<branch>--<repo>--<owner>.aem.page/` In the example above that’s `https://main--mysite--aemtutorial.aem.page/`
+  ![alt text](images/image_1763012800529_0.png)
+  ![alt text](images/image_1763012808374_0.png)
 
-    ![alt text](images/image_1763012800529_0.png)
-    ![alt text](images/image_1763012808374_0.png)
+### Understand what has just been created
 
-### Verify EDS site admins using User Admin Tool
+As part of the process you just followed, an `aem.live` EDS org with the same name as your `github.com` org was created, and the github.com user who added the AEM Code Sync App will be added as admin.
+
+> See the [EDS Organization Setup Guide](https://www.aem.live/docs/config-service-setup#create-your-organization) for more details.
+
+### Verify EDS org admins using User Admin Tool
 
 - https://tools.aem.live/
 - https://www.aem.live/docs/config-service-setup
 
   ![alt text](images/image_1763076534000_0.png)
+
+
 
 ### Add Project
 
