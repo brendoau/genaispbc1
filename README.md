@@ -204,6 +204,12 @@ To prove this, ask one of your bootcamp colleagues to browse to your DA authorin
 
 For an overview of the EDS ecosystem of access control, read https://docs.da.live/administrators/guides/permissions
 
+### Setup and limit the ability to preview and publish
+
+https://docs.da.live/administrators/guides/permissions#setup-and-limit-the-ability-to-preview-and-publish
+
+TODO up to here
+
 ### Setup and limit the ability to author content
 
 > For concepts please read -> https://docs.da.live/administrators/guides/permissions#ability-to-author-content
@@ -234,9 +240,16 @@ add the following configuration.
 
 3. Click Save (paper plane)
 
-### Setup and limit the ability to preview and publish
+#### Confirm now that others cannot author content in DA
 
-https://docs.da.live/administrators/guides/permissions#setup-and-limit-the-ability-to-preview-and-publish
+Now that we have hardened DA permssions, confirm with a bootcamp colleague that they can no longer browse to your DA authoring URL, see nor update content.
+
+
+
+
+
+
+
 
 
 
