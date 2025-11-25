@@ -185,7 +185,11 @@ You will then need to sign in.
 
 ![alt text](Xnip2025-11-25_13-38-19.jpg)
 
-TODO show how to create one
+![alt text](Xnip2025-11-25_19-59-36.jpg)  
+
+Once signed in, you should see the project signed in when selecting the avatar in the top-right.
+
+![alt text](Xnip2025-11-25_20-12-15.jpg)
 
 #### Manage Projects
 
