@@ -611,7 +611,7 @@ curl "https://391665-123orchidyak-stage.adobeioruntime.net/api/v1/web/brendanbc2
 
 You should see the IMS group users returned
 
-![alt text](Xnip2025-11-26_22-31-02.jpg)
+![alt text](images/Xnip2025-11-26_22-31-02.jpg)
 
 ## Execute `sync-umapi-to-eds` to set EDS preview and publishing permissions
 
@@ -626,7 +626,7 @@ curl https://391665-123orchidyak-stage.adobeioruntime.net/api/v1/web/brendanbc2a
 
 You should see `access.json updated successfully`
 
-![alt text](Xnip2025-11-26_22-35-17.jpg)
+![alt text](images/Xnip2025-11-26_22-35-17.jpg)
 
 ## Verify EDS permissions were set
 
@@ -637,7 +637,7 @@ curl 'https://admin.hlx.page/config/<ORG>/sites/<SITE>/access.json' \
 
 You should see all IMS user IDs in the publish array
 
-![alt text](Xnip2025-11-26_22-38-55.jpg)
+![alt text](images/Xnip2025-11-26_22-38-55.jpg)
 
 ## Test Publishing from DA to EDS again
 
@@ -645,11 +645,11 @@ Repeat the same test as in ["Confirm now that IMS user group users can now autho
 
 Login to DA in another browser profile with your adobe user (with the `acs-apac-internal` profile). This time, attempt to **preview and publish** content.
 
-![alt text](Xnip2025-11-26_22-45-28.jpg)
+![alt text](images/Xnip2025-11-26_22-45-28.jpg)
 
 You should now be able to successfully publish this time! 
 
-![alt text](Xnip2025-11-26_22-46-17.jpg)
+![alt text](images/Xnip2025-11-26_22-46-17.jpg)
 
 The automated sync action has granted publish permissions to all users in the `GenAI_Subprac_Bootcamp_1_Users` group.
 
