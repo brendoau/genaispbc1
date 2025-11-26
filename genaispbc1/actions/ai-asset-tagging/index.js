@@ -113,7 +113,7 @@ exports.main = async function main(params) {
             
             // Get access token using environment parameters
             //const accessToken = await getAccessTokenFromEnv(params, logger);
-            const accessToken = "eyJhbGciOiJSUzI1NiIsIng1dSI6Imltc19uYTEta2V5LWF0LTEuY2VyIiwia2lkIjoiaW1zX25hMS1rZXktYXQtMSIsIml0dCI6ImF0In0.eyJpZCI6IjE3NjM5MDEyMDc5NjZfOGU4ZjY2ZTQtNWRjMy00ZjMzLWI1OGItZWExMzllOTU3MzgxX3V3MiIsInR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJjbGllbnRfaWQiOiJkZXYtY29uc29sZS1wcm9kIiwidXNlcl9pZCI6IkI1Njg3RjIyNjJEQ0U1OTAwQTQ5NUZBREBiMGZiNTJjODYyZGNiYWEwNDk1ZWMzLmUiLCJzdGF0ZSI6Im0wa3lzTVJ1RzBleHRobTc2RkJWWTAxWSIsImFzIjoiaW1zLW5hMSIsImFhX2lkIjoiMDk0MjcyMDQ2MkEyQ0JDNzBBNDk1QzU1QEFkb2JlSUQiLCJjdHAiOjAsImZnIjoiWjdLQzJONERWTE01QURXMkZDUVZLWEFBWlkiLCJzaWQiOiIxNzU5MjM4MTcxMzY4X2I5YjJiMTI0LWYxMGEtNGU1Yy04Njk3LTA3OTBlODhmODhjYV91dzIiLCJydGlkIjoiMTc2MzkwMTIwNzk2N19mOTVhMTlhMS1hYTE2LTRiMWMtOWM2NS0yMjMwNzIxNmM0MGVfdXcyIiwibW9pIjoiODAzOGUyZTYiLCJwYmEiOiJNZWRTZWNOb0VWLExvd1NlYyIsInJ0ZWEiOiIxNzY1MTEwODA3OTY3IiwiZXhwaXJlc19pbiI6Ijg2NDAwMDAwIiwic2NvcGUiOiJBZG9iZUlELG9wZW5pZCxyZWFkX29yZ2FuaXphdGlvbnMsYWRkaXRpb25hbF9pbmZvLnByb2plY3RlZFByb2R1Y3RDb250ZXh0LGFkZGl0aW9uYWxfaW5mby5yb2xlcyIsImNyZWF0ZWRfYXQiOiIxNzYzOTAxMjA3OTY2In0.HYh0tfyXk7rzoeCfryQLeiOD9DVtM4POxHAb6X4XxCGN2niFamh6uUiLE4tVVu71tHaJZ-mHggxZ1pUQYsX3Df9DonnZCTukBQvciEuxCI4QaCWhIm2t8ouFmuS2Fdrcn4SiXiNPs8arbqBAZKGD-NVxqNeoWQCrNHNzb2LmM_mZHoQuYDDzquCj1qaOJfTeh5jySeZuW12PHRYHrAVpQe1K0OuRLL4r-bFrD5-yXNDVqhLU2alDyXZssZ082H6JjjsR-oT89YjCZ_EnUCz2cyoxa6gMDYN3zYFqRXXcHTqwFsq8XndUF4B3gQuAJ6mLTgjdZqQa6UO1xqjuBqrUiw";
+            const accessToken = params.accessToken;
             // Set processing status
             properties["aigen:status"] = "processed";
             
