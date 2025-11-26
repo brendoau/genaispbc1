@@ -606,82 +606,55 @@ Take note of all the web action URLs
 Execute the web action for the action via curl
 
 ```
-curl "https://391665-123orchidyak-stage.adobeioruntime.net/api/v1/web/brendanbc2app/get-umapi-users" | jq '{_mock, group, count, access}'
+curl "https://391665-123orchidyak-stage.adobeioruntime.net/api/v1/web/brendanbc2app/get-umapi-users"
 ```
 
+You should see the IMS group users returned
+
+![alt text](Xnip2025-11-26_22-31-02.jpg)
+
+## Execute `sync-umapi-to-eds` to set EDS preview and publishing permissions
+
+This is App Builder action that is the automation we have been aiming for, which will loop all users in an IMS group and set EDS preview and publishing permissions.
+
+This can be run on a schedule, in order to continuosly update EDS access control as required as users come and go within an organization.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Verify
-
-### Test with Mock Data (Recommended for Bootcamp)
-
-With `USE_MOCK_DATA=true` in `.env`, test without hitting UMAPI rate limits:
-
-**1. Test get-umapi-users:**
-```bash
-curl "https://391665-885ivorypike-stage.adobeioruntime.net/api/v1/web/genaispbc1/get-umapi-users" | jq '{_mock, group, count, access}'
+```
+curl https://391665-123orchidyak-stage.adobeioruntime.net/api/v1/web/brendanbc2app/sync-umapi-to-eds
 ```
 
-Expected: `_mock: true`, 7 users from EDS_Sandbox_Users group
+You should see `access.json updated successfully`
 
-**2. Test sync-umapi-to-eds (End-to-End):**
-```bash
-curl "https://391665-885ivorypike-stage.adobeioruntime.net/api/v1/web/genaispbc1/sync-umapi-to-eds" | jq .
-```
+![alt text](Xnip2025-11-26_22-35-17.jpg)
 
-Expected: Both steps succeed (requires EDS_ADMIN_TOKEN in .env)
-```json
-{
-  "step1": {
-    "group": "EDS_Sandbox_Users",
-    "count": 7
-  },
-  "step2": {
-    "message": "access.json updated successfully"
-  }
-}
-```
+## Verify EDS permissions were set
 
-**3. Verify EDS permissions were set:**
+Use the same curl command from the ["Confirm current EDS site access"](#confirm-current-eds-site-access) section:
 
-Check via API:
-```bash
-curl "https://admin.hlx.page/config/<YOUR_ORG>/sites/<YOUR_SITE>/access.json" \
-  -H "x-auth-token: <YOUR_ADMIN_TOKEN>" | jq .
-```
+curl 'https://admin.hlx.page/config/<ORG>/sites/<SITE>/access.json' \
+--header 'x-auth-token: <AUTH_TOKEN>'
 
-Expected: All 7 IMS user IDs in `admin.role.publish` array
+You should see all IMS user IDs in the publish array
 
-Or check EDS Admin UI that users were synced:
+![alt text](Xnip2025-11-26_22-38-55.jpg)
 
-![EDS Admin UI showing synced users](images/Xnip2025-11-20_23-52-47.jpg)
+## Test Publishing from DA to EDS again
 
-**4. Test Publishing:**
+Repeat the same test as in ["Confirm now that IMS user group users can now author content in DA"](#confirm-now-that-ims-user-group-users-can-now-author-content-in-da):
 
-Verify you can publish site from DA authoring interface:
+Login to DA in another browser profile with your adobe user (with the `acs-apac-internal` profile). This time, attempt to **preview and publish** content.
 
-![DA authoring interface](images/Xnip2025-11-20_23-55-17.jpg)
-![Publishing confirmation](images/Xnip2025-11-20_23-55-43.jpg)
+![alt text](Xnip2025-11-26_22-45-28.jpg)
 
-### Test with Live Data (Optional)
+You should now be able to successfully publish this time! 
 
-Set `USE_MOCK_DATA=false` in `.env` and redeploy to use live UMAPI data. Note: 25 req/min rate limit applies.
+![alt text](Xnip2025-11-26_22-46-17.jpg)
 
-🎉🎉🎉 LAB Complete
+The automated sync action has granted publish permissions to all users in the `GenAI_Subprac_Bootcamp_1_Users` group.
+
+If you are able to successfully publish then you have successfully completed the lab!
+
+**Lab 1 Complete 🎉**
+---
 
