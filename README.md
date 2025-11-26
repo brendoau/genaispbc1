@@ -330,7 +330,7 @@ For the negative test, login to DA in another browser profile with another user 
 
 > For concepts please read https://www.aem.live/docs/config-service-setup#update-access-control and https://www.aem.live/docs/authentication-setup-authoring
 
-We have now explored the how to harden EDS preview and publish access for a single user.  Later, we will perform this at scale using App Builder!
+We have now explored how to harden EDS preview and publish access for a single user.  Later, we will perform this at scale using App Builder!
 
 ### Setup and limit the ability to author content in DA
 
@@ -359,82 +359,68 @@ Go to (https://da.live/config#/<ORG_ID>/) and add the following configuration.
 
 1. Add a sheet called `Permissions`.
 2. Add columns `path`,  `groups` and `actions`
-3. Add two rows as below
+3. Add four rows as below 
+
+> These are based on the recommended structure outlined here -> https://docs.da.live/administrators/guides/permissions#permissions-sheet
 
 | **path** | **groups** | **actions** |
 | -------- | ---------- | ----------- |
-| CONFIG | `09CF60665F98CEF90A495FF8, <EMAIL>` | write |
-| / + ** | `09CF60665F98CEF90A495FF8, <EMAIL>` | write |
+| CONFIG | `09CF60665F98CEF90A495FF8` | read |
+| CONFIG | `<EMAIL>` | write |
+| / + ** | `09CF60665F98CEF90A495FF8` | read |
+| / + ** | `<EMAIL>` | write |
 
-![alt text](Xnip2025-11-26_11-53-40.jpg)
+![alt text](Xnip2025-11-26_14-12-24.jpg)
 
 3. Click Save (paper plane)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #### Confirm now that others cannot author content in DA
 
-Now that we have hardened DA permssions, confirm with a bootcamp colleague that they can no longer browse to your DA authoring URL, see nor update content.
+Now that we have hardened DA permssions, login to DA in another browser profile with another user or ask your bootcamp colleague to try author and save changes to content in DA again.  They should not be able to.
 
+There should be a padlock 🔒 icon appear on the DA page
 
+![alt text](Xnip2025-11-26_14-14-05.jpg)
 
+We have now explored how to harden DA content editing access for a single user.  Later, we will perform this at scale using App Builder!
 
+#### Open up DA permissions to Bootcamp users group
 
+With AppBuilder in the next section we will be automating EDS preview and publish permissions, not DA permissions.  
 
+As such, lets open up DA content authoring access to the Bootcamp IMS User group.  
 
+Go to (https://da.live/config#/<ORG_ID>/) and update the permission sheet to match the below.  I.e. we will grant write access to the `GenAI_Subprac_Bootcamp_1_Users` user group users in the `acs-apac-internal` IMS org.
 
+| **path** | **groups** | **actions** |
+| -------- | ---------- | ----------- |
+| CONFIG | `09CF60665F98CEF90A495FF8` | read |
+| CONFIG | `09CF60665F98CEF90A495FF8/GenAI_Subprac_Bootcamp_1_Users, <EMAIL>` | write |
+| / + ** | `09CF60665F98CEF90A495FF8` | read |
+| / + ** | `09CF60665F98CEF90A495FF8/GenAI_Subprac_Bootcamp_1_Users, <EMAIL>` | write |
 
+![alt text](Xnip2025-11-26_14-08-35.jpg)
 
+3. Click Save (paper plane)
 
-### Harden DA permissions
+#### Confirm now that IMS user group users can now author content in DA
 
-https://docs.da.live/administrators/guides/permissions
+Now that we have opened up DA permissions again (albeit to a limited group), login to DA `GenAI_Subprac_Bootcamp_1_Users` in another browser profile with your adobe user (with the `acs-apac-internal` profile).  This user has been pre-added into the user group for the purposes of this bootcamp.  Try author and save changes to content in DA again.  You should be able to.
 
-1. Add your admin user to DA permissions (config and authoring)
-2. Add all users from IMS Group ??? in `acs-apac-internal` group to DA permissions (config and authoring)
+> Remember preview and publish permisssion is still restricted to these users.
 
-> At this point the admin user and anyone in the IMS group will be able to author in DA, but not preview or publish!
+![alt text](Xnip2025-11-26_14-25-37.jpg)
 
-### Harden EDS permissions
+## Checkpoint
 
-#### View current state of EDS site access using EDS Admin API
+At this point you should have an understanding of the concepts that drive DA and EDS permissions.  We have experimented with authoring, previewing and publishing of content from DA to EDS, firstly with open access, then with restricted access in DA and in EDS.  However this was quite manual and does not scale that well for use cases where:
 
-#### Restrict access to specific user
+- IMS user group user association change often
+- you have large number of DA/EDS sites to manage
+- you have a large number of users and/or groups of users
+- automation is required
 
-#### Verify only this user can preview publish and others cannot
-
-> At this point you should have an understanding of the concepts that drive DA and EDS permissions.  Next we will move onto automating this configuration at scale.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Next we will move onto automating this configuration at scale.
 
 ## Create App Builder App
 
