@@ -338,48 +338,52 @@ Now we have restricted EDS preview and publishing permissions, all users are sti
 
 > For concepts please read -> https://docs.da.live/administrators/guides/permissions#ability-to-author-content
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #### Get your IMS Organization ID.
 Use Admin Console to get your IMS organization ID.
 
 > The ID for `acs-apac-internal` is `09CF60665F98CEF90A495FF8`
 
-#### Get your IMS ID.
+#### Get your identity email address
 
-Follow this guide https://docs.da.live/administrators/guides/permissions#get-your-ims-userid
+This is the same email address you used to login to DA
+
+![alt text](Xnip2025-11-26_11-45-21.jpg)
 
 #### Populate DA permissions sheet
 
-In your the permissions sheet of the DA organization config (https://da.live/config#/name-of-org/),
-add the following configuration.
+Go to (https://da.live/config#/<ORG_ID>/) and add the following configuration.
+
+> IMPORTANT!! Ensure you put you email address into the permissions sheet below for rows `CONFIG` and `/ + **`.  If you don't you will nuke your access! ☢️
+
+![alt text](Xnip2025-11-26_11-48-50.jpg)
 
 1. Add a sheet called `Permissions`.
 2. Add columns `path`,  `groups` and `actions`
+3. Add two rows as below
 
 | **path** | **groups** | **actions** |
 | -------- | ---------- | ----------- |
-| CONFIG | `4E0722F969166E3E0A495F98@AdobeID` | write |
-| / + ** | `4E0722F969166E3E0A495F98@AdobeID` | write |
+| CONFIG | `09CF60665F98CEF90A495FF8, <EMAIL>` | write |
+| / + ** | `09CF60665F98CEF90A495FF8, <EMAIL>` | write |
 
-![alt text](Xnip2025-11-25_22-08-11.jpg)
-
-TODO up to here
-TOOD I JUST NUKED MY DA ACCESS BY ADDING IMS ID ONLT TO THE DA PERMISSIONS CONFIG.  GONNA NEED TO START AGAIN! :(. IT even says in the docs to use email for non-org based setups, just use email.
+![alt text](Xnip2025-11-26_11-53-40.jpg)
 
 3. Click Save (paper plane)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #### Confirm now that others cannot author content in DA
 
@@ -413,6 +417,24 @@ https://docs.da.live/administrators/guides/permissions
 #### Verify only this user can preview publish and others cannot
 
 > At this point you should have an understanding of the concepts that drive DA and EDS permissions.  Next we will move onto automating this configuration at scale.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Create App Builder App
 
