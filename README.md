@@ -430,32 +430,60 @@ Next we will move onto automating this configuration at scale.
 aio login
 ```
 
-A browser window should open, asking you to sign in with your Adobe ID. 
+A browser window should open, asking you to sign in with your Adobe ID.
+
+Login with your corporate Adobe ID (e.g. downes@adobe.com) as this will be needed for you to create an App Builder app within the `acs-apac-internal` org.  
+
+Select the `acs-apac-internal` profile.
+
+If prompted, click on the "proceed" link.
+
+![alt text](Xnip2025-11-26_19-14-28.jpg)
+![alt text](Xnip2025-11-26_19-16-07.jpg)
 
 Once you've logged in, you can close the browser window and go back to Terminal. 
 
+![alt text](Xnip2025-11-26_19-17-00.jpg)
+
+> For more information on signing in from the cli, see https://developer.adobe.com/app-builder/docs/get_started/app_builder_get_started/first-app#sign-in-from-the-cli
 
 ### Create the project in Developer Console
 
-1.	Go to Adobe Developer Console https://developer.adobe.com/console
-2.  Go to `acs-apac-internal` org.
-3.  Click “Create project from template”
-4.  Choose Adobe App Builder
-5. Give the project a title (e.g. brendanbc1).  Ensure you keep checked "Include Runtime".  Click Save.
-    
+Go to Adobe Developer Console https://developer.adobe.com/console
+
+Select the `acs-apac-internal` org.
+
+Click “Create project from template”
+
+![alt text](Xnip2025-11-26_19-28-04.jpg)
+
+Choose Adobe App Builder
+
+![alt text](Xnip2025-11-26_19-28-38.jpg)
+
+Give the project a title (e.g. `brendanbc2`).  Ensure you keep checked "Include Runtime".  Click Save.
+
+![alt text](Xnip2025-11-26_19-30-22.jpg)
+![alt text](Xnip2025-11-26_19-45-18.jpg)
+
+> For more information, see https://developer.adobe.com/app-builder/docs/get_started/app_builder_get_started/first-app#create-a-new-project-on-developer-console
+
 ### Generate the App Builder project locally
 
-NB: There is a sample project build locally under `genaispbc1` which you can reference (TODO, COULD PUT THIS IN SOLUTION BRANCH INSTEAD)
-
 Create a folder on your local
+
+```
+mkdir 
+cd brendanbc2
+```
+
+Bootstrap the new app using the CLI
+
+```
+aio app init brendanbc2app --standalone-app
+```
+
 You will be prompted with a few questions about how you want your app to be boostrapped and configured.
-
-```
-mkdir genaispbc1
-cd genaispbc1
-
-aio app init genaispbc1 --standalone-app
-```
 
 When prompted:
 
@@ -465,71 +493,85 @@ When prompted:
   - Sample actions - `Generic`
     - Name of sample application - `generic`
 
+![alt text](Xnip2025-11-26_19-48-14.jpg)
+
+> For more information, see https://developer.adobe.com/app-builder/docs/get_started/app_builder_get_started/first-app#initialize-an-empty-project
+
+### Open project in IDE
+
+Feel free at this point to open your local App Builder project in an IDE.
+
 ## Implement Lab 1 Actions
 
-### Define actions via `app.config.yaml` under `actions`
+> For more information on App Builder actions and their configuration please see https://developer.adobe.com/app-builder/docs/guides/app_builder_guides/configuration/configuration and https://developer.adobe.com/app-builder/docs/guides/app_builder_guides/configuration/configuration
 
-```
-get-umapi-users:
-  function: actions/get-umapi-users/index.js
-  web: 'yes'
-  runtime: nodejs:22
-  inputs:
-    LOG_LEVEL: debug
-  annotations:
-    require-adobe-auth: false
-    final: true
-update-eds-access:
-  function: actions/update-eds-access/index.js
-  web: 'yes'
-  runtime: nodejs:22
-  inputs:
-    LOG_LEVEL: debug
-  annotations:
-    require-adobe-auth: false
-    final: true
-sync-umapi-to-eds:
-  function: actions/sync-umapi-to-eds/index.js
-  web: 'yes'
-  runtime: nodejs:22
-  inputs:
-    LOG_LEVEL: debug
-  annotations:
-    require-adobe-auth: false
-    final: true
+Recall what we are about to create via AppBuilder
+
+```mermaid
+graph LR
+    A[App Builder] -->|1. Get IMS group users| B[User Management API]
+    B -->|2. Return user list| A
+    A -->|3. Update EDS publishing access<br/>with IMS user IDs| C[EDS Admin API]
 ```
 
-### Define actions inputs via `app.config.yaml` below `actions`
+We will be creating 3 App Builder runtime actions
 
-```
-inputs:
-  # EDS configuration
-  EDS_ORG: $EDS_ORG
-  EDS_SITE: $EDS_SITE
-  EDS_ADMIN_TOKEN: $EDS_ADMIN_TOKEN
-  # UMAPI proxy
-  UMAPI_PROXY_URL: $UMAPI_PROXY_URL
-```
+1. `get-umapi-users` - This action will fetch users from a predefined IMS user group
+2. `update-eds-access` - This action will perform updates to the EDS configuration service to set access for previewing and publishing
+3.  `sync-umapi-to-eds` - A main action that wires the first two actions together.  This is the the entry point.
+
+### Define actions via `app.config.yaml`
+
+Open `app.config.yaml`
+
+You will see that this currently only defines the `generic` action.
+
+Add the three new actions under the `actions` (just below the `generic` action). Refer to [lab1_sample_code/actions.yaml](lab1_sample_code/actions.yaml) for the action definitions.
+
+### Define actions inputs via `app.config.yaml`
+
+Open `app.config.yaml`
+
+Add the inputs under the app parent
+
+Refer to [lab1_sample_code/inputs.yaml](lab1_sample_code/inputs.yaml) for the action definitions.
+
+### Check
+
+Your `app.config.yaml` should now look something like this...
+
+![alt text](Xnip2025-11-26_20-40-03.jpg)
 
 ### Set env vars
 
-Set env vars in `.env` file: EDS_ORG, EDS_SITE, EDS_ADMIN_TOKEN, UMAPI_PROXY_URL, USE_MOCK_DATA
+> For more information on the `.env`file see https://developer.adobe.com/app-builder/docs/guides/app_builder_guides/configuration/configuration#the-env-file
+
+Set env vars in `.env` file:
+
+- EDS_ORG
+- EDS_SITE
+- EDS_ADMIN_TOKEN
+- UMAPI_PROXY_URL
+- USE_MOCK_DATA
 
 Example
 
 ```
-UMAPI_PROXY_URL=https://391665-478whitegayal-stage.adobeioruntime.net/api/v1/web/umapi-proxy-app/umapi-proxy-action?secret=<ASK>
-EDS_ORG=brendoaugh2
-EDS_SITE=genaibc1
-EDS_ADMIN_TOKEN=
-
-# Use mock UMAPI data to avoid rate limits (set to 'true' for bootcamp)
-# UMAPI has a limit of 25 requests/minute. With 30 attendees, mock data avoids rate limit issues.
-# Mock data is based on real EDS_Sandbox_Users group and only changes once daily.
+EDS_ORG=<ORG>
+EDS_SITE=<SITE>
+EDS_ADMIN_TOKEN=<X_AUTH_TOKEN>
+UMAPI_PROXY_URL=https://391665-478whitegayal-stage.adobeioruntime.net/api/v1/web/umapi-proxy-app/umapi-proxy-action?secret=<PROXY_SECRET>
 USE_MOCK_DATA=true
 ```
 
-**Important:** During the bootcamp, keep `USE_MOCK_DATA=true` to avoid UMAPI rate limits (25 req/min). With 30 attendees, everyone would hit rate limits testing simultaneously. Set to `false` only for production use or when you need live data.
+where:
+
+- ORG is your EDS org from earlier in this lab
+- SITE is your EDS site from earlier in this lab
+- X_AUTH_TOKEN is your x_auth_token from earlier in this lab
+- PROXY_SECRET will be given to you in the lab
+
+> For this lab, we will not actually be calling the UMAPI API, as there are strict rate limits that would be exceeded if we did.  Instead we are mocking this data, hence the UMAPI_PROXY_URL and USE_MOCK_DATA, which is because we are using a proxy endpoint that is sending back mock data.
 
 ### Add action code for get-umapi-users
 

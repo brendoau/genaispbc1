@@ -1,0 +1,7 @@
+inputs:
+  # EDS configuration
+  EDS_ORG: $EDS_ORG
+  EDS_SITE: $EDS_SITE
+  EDS_ADMIN_TOKEN: $EDS_ADMIN_TOKEN
+  # UMAPI proxy
+  UMAPI_PROXY_URL: $UMAPI_PROXY_URL

@@ -1,0 +1,27 @@
+get-umapi-users:
+  function: actions/get-umapi-users/index.js
+  web: 'yes'
+  runtime: nodejs:22
+  inputs:
+    LOG_LEVEL: debug
+  annotations:
+    require-adobe-auth: false
+    final: true
+update-eds-access:
+  function: actions/update-eds-access/index.js
+  web: 'yes'
+  runtime: nodejs:22
+  inputs:
+    LOG_LEVEL: debug
+  annotations:
+    require-adobe-auth: false
+    final: true
+sync-umapi-to-eds:
+  function: actions/sync-umapi-to-eds/index.js
+  web: 'yes'
+  runtime: nodejs:22
+  inputs:
+    LOG_LEVEL: debug
+  annotations:
+    require-adobe-auth: false
+    final: true
