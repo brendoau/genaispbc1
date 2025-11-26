@@ -111,8 +111,8 @@ exports.main = async function main(params) {
             logInfo('Step 6 - Update AEM metadata');
             debugLogs.push('Step 6 - Update AEM metadata');
             
-            // Get access token using environment parameters
-            //const accessToken = await getAccessTokenFromEnv(params, logger);
+            // Get access token from request parameters (not hardcoded)
+            // Token is passed securely from the calling service
             const accessToken = params.accessToken;
             // Set processing status
             properties["aigen:status"] = "processed";

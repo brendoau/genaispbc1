@@ -138,7 +138,8 @@ async function downloadRenditionFromAEMDirect(assetPath, aemInstanceUrl, params,
     ];
 
     const maxRetries = 3;
-   // const accessToken = await getAccessTokenFromEnv(params, logger);
+    // Get access token from request parameters (not hardcoded)
+    // Token is passed securely from the calling service
     const accessToken = params.accessToken;
     logger.info(`Starting rendition download with ${renditionFallbacks.length} fallback options`);
     debugLogs.push(`Available renditions to try: ${renditionFallbacks.length}`);
