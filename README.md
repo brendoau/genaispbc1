@@ -228,7 +228,11 @@ Go to your browner's developer tools.  Under `Application` > `Cookies` > you wil
 
 #### Confirm current EDS site access
 
-Perform the following via curl
+Perform the following via curl, where
+
+- <ORG> is your EDS org created above (same as your GitHub org name).
+- <SITE> is your EDS site that was created above (same as your repo name).
+- <AUTH_TOKEN> is the `auth_token` from the previous step.
 
 ```
 curl 'https://admin.hlx.page/config/<ORG>/sites/<SITE>/access.json' \
@@ -250,6 +254,72 @@ The response should look something like this
 ```
 
 What this is showing is that there is no authentication set for preview and publish permission for this EDS site, which is why above any user can preview and publish from DA to EDS.
+
+#### Restrict preview and publishing to EDS site for all
+
+Perform the following via curl to turn `requireAuth` on.
+
+```
+curl --location 'https://admin.hlx.page/config/<ORG>/sites/<SITE>/access.json' \
+--header 'x-auth-token: <AUTH_TOKEN>' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "admin": {
+        "role": {
+            "admin": [
+                "helix-setup@adobe.com"
+            ]
+        },
+        "requireAuth": "true"
+    }
+}'
+```
+
+Go back to da.live and attempt to publish the index page.  You should receive a non-authorized error
+
+![alt text](Xnip2025-11-26_10-42-04.jpg)
+
+#### Grant yourself preview and publish permissions
+
+##### Get your IMS userid
+
+1. Visit da.live in your browser.
+2. Sign in (if you are not already)
+3. Open the profile menu from the top right
+4. Click your name, this will copy your IMS userid.
+6. Paste the copied userid somewhere safe.
+
+> It will be in format e.g. `EA8A4749H4GK99IHO495FA1@AdobeID`
+
+![alt text](Xnip2025-11-26_10-50-09.jpg)
+![alt text](Xnip2025-11-26_10-50-30.jpg)
+
+##### Update EDS site access config
+
+Perform the following via curl.  Ensure to include the IMS User id from the previous step where shown below
+
+```
+curl 'https://admin.hlx.page/config/<ORG>/sites/<SITE>/access.json' \
+--header 'x-auth-token: <AUTH_TOKEN>' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "admin": {
+        "role": {
+            "admin": [
+                "helix-setup@adobe.com"
+            ],
+            "publish": [
+                "<IMS_USERID>"
+            ]
+        },
+        "requireAuth": "true"
+    }
+}'
+```
+
+Go back to da.live and attempt to publish the index page.  You should now be able to do so successfully! ✅🙂
+
+For the negative test, login to DA in another browser profile or ask your bootcamp colleague to try publish your site via DA again.  The non-authorized error should appear.
 
 > For concepts please read https://www.aem.live/docs/config-service-setup#update-access-control and https://www.aem.live/docs/authentication-setup-authoring
 
