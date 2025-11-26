@@ -204,9 +204,16 @@ To prove this, ask one of your bootcamp colleagues to browse to your DA authorin
 
 For an overview of the EDS ecosystem of access control, read https://docs.da.live/administrators/guides/permissions and https://docs.da.live/administrators/guides/permissions#a-common-pitfall
 
+The key concept here is that:
+
+> - **Ability to author content** - This access control is handled by DA or Java-based AEM.
+> - **Ability to preview content** - This access control is handled by Edge Delivery Services.
+> - **Ability to publish content** - This access control is handled by Edge Delivery Services.
+> - **Ability to view content** - This access control is handled by Edge Delivery Services.
+
 ## Harden EDS and DA permissions
 
-### Setup and limit the ability to preview and publish
+### Setup and limit the ability to preview and publish to EDS
 
 #### Obtain your auth token in order to use the AEM Admin API
 
@@ -319,13 +326,31 @@ curl 'https://admin.hlx.page/config/<ORG>/sites/<SITE>/access.json' \
 
 Go back to da.live and attempt to publish the index page.  You should now be able to do so successfully! ✅🙂
 
-For the negative test, login to DA in another browser profile or ask your bootcamp colleague to try publish your site via DA again.  The non-authorized error should appear.
+For the negative test, login to DA in another browser profile with another user or ask your bootcamp colleague to try publish your site via DA again.  The non-authorized error should appear.
 
 > For concepts please read https://www.aem.live/docs/config-service-setup#update-access-control and https://www.aem.live/docs/authentication-setup-authoring
 
-### Setup and limit the ability to author content
+We have now explored the how to harden EDS preview and publish access for a single user.  Later, we will perform this at scale using App Builder!
+
+### Setup and limit the ability to author content in DA
+
+Now we have restricted EDS preview and publishing permissions, all users are still able to author content in DA!  In this section we will explore hardening this access.
 
 > For concepts please read -> https://docs.da.live/administrators/guides/permissions#ability-to-author-content
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #### Get your IMS Organization ID.
 Use Admin Console to get your IMS organization ID.
