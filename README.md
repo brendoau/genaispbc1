@@ -552,7 +552,6 @@ Set env vars in `.env` file:
 - EDS_SITE
 - EDS_ADMIN_TOKEN
 - UMAPI_PROXY_URL
-- USE_MOCK_DATA
 
 Example
 
@@ -562,7 +561,6 @@ EDS_ORG=<ORG>
 EDS_SITE=<SITE>
 EDS_ADMIN_TOKEN=<X_AUTH_TOKEN>
 UMAPI_PROXY_URL=https://391665-478whitegayal-stage.adobeioruntime.net/api/v1/web/umapi-proxy-app/umapi-proxy-action?secret=<PROXY_SECRET>
-USE_MOCK_DATA=true
 ```
 
 where:
@@ -571,9 +569,8 @@ where:
 - SITE is your EDS site from earlier in this lab
 - X_AUTH_TOKEN is your x_auth_token from earlier in this lab
 - PROXY_SECRET will be given to you in the lab
-- USE_MOCK_DATA=true
 
-> For this lab, we will not actually be calling the UMAPI API, as there are strict rate limits that would be exceeded if we did.  Instead we are mocking this data, hence the UMAPI_PROXY_URL and USE_MOCK_DATA, which is because we are using a proxy endpoint that is sending back mock data.
+> For this lab, we will not actually be calling the UMAPI API, as there are strict rate limits that would be exceeded if we did.  Instead we are mocking this data, hence the UMAPI_PROXY_URL, which is because we are using a proxy endpoint that is sending back mock data.
 
 ### Add action code for get-umapi-users
 
