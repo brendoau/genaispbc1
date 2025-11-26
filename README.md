@@ -405,7 +405,7 @@ Go to (https://da.live/config#/<ORG_ID>/) and update the permission sheet to mat
 
 #### Confirm now that IMS user group users can now author content in DA
 
-Now that we have opened up DA permissions again (albeit to a limited group), login to DA `GenAI_Subprac_Bootcamp_1_Users` in another browser profile with your adobe user (with the `acs-apac-internal` profile).  This user has been pre-added into the user group for the purposes of this bootcamp.  Try author and save changes to content in DA again.  You should be able to.
+Now that we have opened up DA permissions again (albeit to a limited group `GenAI_Subprac_Bootcamp_1_Users`), login to DA in another browser profile with your adobe user (with the `acs-apac-internal` profile).  This user has been pre-added into the user group for the purposes of this bootcamp.  Try author and save changes to content in DA again.  You should be able to.
 
 > Remember preview and publish permisssion is still restricted to these users.
 
