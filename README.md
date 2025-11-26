@@ -557,6 +557,7 @@ Set env vars in `.env` file:
 Example
 
 ```
+...
 EDS_ORG=<ORG>
 EDS_SITE=<SITE>
 EDS_ADMIN_TOKEN=<X_AUTH_TOKEN>
@@ -570,26 +571,38 @@ where:
 - SITE is your EDS site from earlier in this lab
 - X_AUTH_TOKEN is your x_auth_token from earlier in this lab
 - PROXY_SECRET will be given to you in the lab
+- USE_MOCK_DATA=true
 
 > For this lab, we will not actually be calling the UMAPI API, as there are strict rate limits that would be exceeded if we did.  Instead we are mocking this data, hence the UMAPI_PROXY_URL and USE_MOCK_DATA, which is because we are using a proxy endpoint that is sending back mock data.
 
 ### Add action code for get-umapi-users
 
-Add to actions/get-umapi-users/index.js (see example code in genaispbc1 folder)
+Add the `get-umapi-users` action code to new file called `actions/get-umapi-users/index.js`
+
+Example code can be found [lab1_sample_code/get-umapi-users/index.js](lab1_sample_code/get-umapi-users/index.js)
 
 ### Add action code for update-eds-access
 
-Add to actions/update-eds-access/index.js (see example code in genaispbc1 folder)
+Add the `update-eds-access` action code to new file called `actions/update-eds-access/index.js`
+
+Example code can be found [lab1_sample_code/update-eds-access/index.js](lab1_sample_code/update-eds-access/index.js)
 
 ### Add action code for sync-umapi-to-eds
 
-Add to actions/sync-umapi-to-eds/index.js (see example code in genaispbc1 folder)
+Add the `sync-umapi-to-eds` action code to new file called `actions/sync-umapi-to-eds/index.js`
+
+Example code can be found [lab1_sample_code/sync-umapi-to-eds/index.js](lab1_sample_code/sync-umapi-to-eds/index.js)
 
 ## Deploy Lab 1 actions
 
 ```
+cd <appfolder>
 aio app deploy
 ```
+
+![alt text](Xnip2025-11-26_21-12-57.jpg)
+
+
 
 ## Verify
 
