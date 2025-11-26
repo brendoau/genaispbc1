@@ -126,7 +126,7 @@ Clone the boilerplate GitHub repo [https://github.com/adobe/aem-boilerplate](htt
 Click the `Use this template button` and select `Create a new repository`, and select the user org that owns the repository
 
 ![alt text](images/image_1763012440317_0.png)
-![alt text](image_1763012456611_0.png)
+![alt text](images/image_1763012456611_0.png)
 ![alt text](images/image_1763012474886_0.png)
 
 Set repo to public.
@@ -161,27 +161,27 @@ As part of the process you just followed, an `aem.live` EDS org with the same na
 
 Navigate to https://da.live.
 
-![alt text](Xnip2025-11-25_20-49-00.jpg)
+![alt text](images/Xnip2025-11-25_20-49-00.jpg)
 
 Click Sign in
 
-![alt text](Xnip2025-11-25_19-59-36.jpg)  
+![alt text](images/Xnip2025-11-25_19-59-36.jpg)  
 
 > **Important:** At this point, the only admin user for your EDS org is the GitHub user who installed the AEM Code Sync App (as mentioned earlier). You must sign in with an Adobe account that corresponds to this GitHub user. If you don't have a matching Adobe account, you will need to create one.
 
-![alt text](Xnip2025-11-25_22-00-06.jpg)
+![alt text](images/Xnip2025-11-25_22-00-06.jpg)
 
 Enter the URL for your site to get started - in the format https://main--site--org.aem.page as your created EDS site URL above.  Click ->
 
-![alt text](Xnip2025-11-25_21-02-05.jpg)
+![alt text](images/Xnip2025-11-25_21-02-05.jpg)
 
 If already have other recent DA sites, then enter the EDS site URL as shown below.  Click ->
 
-![alt text](Xnip2025-11-25_21-06-32.jpg)
+![alt text](images/Xnip2025-11-25_21-06-32.jpg)
 
 You will now see the DA authoring page for your site
 
-![alt text](Xnip2025-11-25_21-04-09.jpg)
+![alt text](images/Xnip2025-11-25_21-04-09.jpg)
 
 Edit the index page content.  For more information on authoring see https://da.live/docs.
 
@@ -193,8 +193,8 @@ Preview and Publish
 
 You will see preview content pushed to the `.page` EDS site and published content pushed to `.live` EDS site.
 
-![alt text](Xnip2025-11-25_21-15-19.jpg)
-![alt text](Xnip2025-11-25_21-15-50.jpg)
+![alt text](images/Xnip2025-11-25_21-15-19.jpg)
+![alt text](images/Xnip2025-11-25_21-15-50.jpg)
 
 ### What Just Happened: DA and EDS Permissions
 
@@ -221,17 +221,17 @@ The key concept here is that:
 
 Navigate to https://admin.hlx.page/login
 
-![alt text](Xnip2025-11-26_10-04-20.jpg)
+![alt text](images/Xnip2025-11-26_10-04-20.jpg)
 
 Follow the link to `login_adobe` ie. https://admin.hlx.page/auth/adobe
 
 Once logged in you will see a result like below
 
-![alt text](Xnip2025-11-26_10-06-06.jpg)
+![alt text](images/Xnip2025-11-26_10-06-06.jpg)
 
 Go to your browner's developer tools.  Under `Application` > `Cookies` > you will see the `auth_token`.  Copy this value somewhere safe.
 
-![alt text](Xnip2025-11-26_10-08-49.jpg)
+![alt text](images/Xnip2025-11-26_10-08-49.jpg)
 
 #### Confirm current EDS site access
 
@@ -284,7 +284,7 @@ curl --location 'https://admin.hlx.page/config/<ORG>/sites/<SITE>/access.json' \
 
 Go back to da.live and attempt to publish the index page.  You should receive a non-authorized error
 
-![alt text](Xnip2025-11-26_10-42-04.jpg)
+![alt text](images/Xnip2025-11-26_10-42-04.jpg)
 
 #### Grant yourself preview and publish permissions
 
@@ -298,8 +298,8 @@ Go back to da.live and attempt to publish the index page.  You should receive a 
 
 > It will be in format e.g. `EA8A4749H4GK99IHO495FA1@AdobeID`
 
-![alt text](Xnip2025-11-26_10-50-09.jpg)
-![alt text](Xnip2025-11-26_10-50-30.jpg)
+![alt text](images/Xnip2025-11-26_10-50-09.jpg)
+![alt text](images/Xnip2025-11-26_10-50-30.jpg)
 
 ##### Update EDS site access config
 
@@ -347,7 +347,7 @@ Use Admin Console to get your IMS organization ID.
 
 This is the same email address you used to login to DA
 
-![alt text](Xnip2025-11-26_11-45-21.jpg)
+![alt text](images/Xnip2025-11-26_11-45-21.jpg)
 
 #### Populate DA permissions sheet
 
@@ -355,7 +355,7 @@ Go to (https://da.live/config#/<ORG_ID>/) and add the following configuration.
 
 > IMPORTANT!! Ensure you put you email address into the permissions sheet below for rows `CONFIG` and `/ + **`.  If you don't you will nuke your access! ☢️
 
-![alt text](Xnip2025-11-26_11-48-50.jpg)
+![alt text](images/Xnip2025-11-26_11-48-50.jpg)
 
 1. Add a sheet called `Permissions`.
 2. Add columns `path`,  `groups` and `actions`
@@ -370,7 +370,7 @@ Go to (https://da.live/config#/<ORG_ID>/) and add the following configuration.
 | / + ** | `09CF60665F98CEF90A495FF8` | read |
 | / + ** | `<EMAIL>` | write |
 
-![alt text](Xnip2025-11-26_14-12-24.jpg)
+![alt text](images/Xnip2025-11-26_14-12-24.jpg)
 
 3. Click Save (paper plane)
 
@@ -380,7 +380,7 @@ Now that we have hardened DA permssions, login to DA in another browser profile 
 
 There should be a padlock 🔒 icon appear on the DA page
 
-![alt text](Xnip2025-11-26_14-14-05.jpg)
+![alt text](images/Xnip2025-11-26_14-14-05.jpg)
 
 We have now explored how to harden DA content editing access for a single user.  Later, we will perform this at scale using App Builder!
 
@@ -399,7 +399,7 @@ Go to (https://da.live/config#/<ORG_ID>/) and update the permission sheet to mat
 | / + ** | `09CF60665F98CEF90A495FF8` | read |
 | / + ** | `09CF60665F98CEF90A495FF8/GenAI_Subprac_Bootcamp_1_Users, <EMAIL>` | write |
 
-![alt text](Xnip2025-11-26_14-08-35.jpg)
+![alt text](images/Xnip2025-11-26_14-08-35.jpg)
 
 3. Click Save (paper plane)
 
@@ -409,7 +409,7 @@ Now that we have opened up DA permissions again (albeit to a limited group `GenA
 
 > Remember preview and publish permisssion is still restricted to these users.
 
-![alt text](Xnip2025-11-26_14-25-37.jpg)
+![alt text](images/Xnip2025-11-26_14-25-37.jpg)
 
 ## Checkpoint
 
@@ -438,12 +438,12 @@ Select the `acs-apac-internal` profile.
 
 If prompted, click on the "proceed" link.
 
-![alt text](Xnip2025-11-26_19-14-28.jpg)
-![alt text](Xnip2025-11-26_19-16-07.jpg)
+![alt text](images/Xnip2025-11-26_19-14-28.jpg)
+![alt text](images/Xnip2025-11-26_19-16-07.jpg)
 
 Once you've logged in, you can close the browser window and go back to Terminal. 
 
-![alt text](Xnip2025-11-26_19-17-00.jpg)
+![alt text](images/Xnip2025-11-26_19-17-00.jpg)
 
 > For more information on signing in from the cli, see https://developer.adobe.com/app-builder/docs/get_started/app_builder_get_started/first-app#sign-in-from-the-cli
 
@@ -453,18 +453,18 @@ Go to Adobe Developer Console https://developer.adobe.com/console
 
 Select the `acs-apac-internal` org.
 
-Click “Create project from template”
+Click "Create project from template"
 
-![alt text](Xnip2025-11-26_19-28-04.jpg)
+![alt text](images/Xnip2025-11-26_19-28-04.jpg)
 
 Choose Adobe App Builder
 
-![alt text](Xnip2025-11-26_19-28-38.jpg)
+![alt text](images/Xnip2025-11-26_19-28-38.jpg)
 
 Give the project a title (e.g. `brendanbc2`).  Ensure you keep checked "Include Runtime".  Click Save.
 
-![alt text](Xnip2025-11-26_19-30-22.jpg)
-![alt text](Xnip2025-11-26_19-45-18.jpg)
+![alt text](images/Xnip2025-11-26_19-30-22.jpg)
+![alt text](images/Xnip2025-11-26_19-45-18.jpg)
 
 > For more information, see https://developer.adobe.com/app-builder/docs/get_started/app_builder_get_started/first-app#create-a-new-project-on-developer-console
 
@@ -493,7 +493,7 @@ When prompted:
   - Sample actions - `Generic`
     - Name of sample application - `generic`
 
-![alt text](Xnip2025-11-26_19-48-14.jpg)
+![alt text](images/Xnip2025-11-26_19-48-14.jpg)
 
 > For more information, see https://developer.adobe.com/app-builder/docs/get_started/app_builder_get_started/first-app#initialize-an-empty-project
 
@@ -540,7 +540,7 @@ Refer to [lab1_sample_code/inputs.yaml](lab1_sample_code/inputs.yaml) for the ac
 
 Your `app.config.yaml` should now look something like this...
 
-![alt text](Xnip2025-11-26_20-40-03.jpg)
+![alt text](images/Xnip2025-11-26_20-40-03.jpg)
 
 ### Set env vars
 
@@ -600,7 +600,33 @@ cd <appfolder>
 aio app deploy
 ```
 
-![alt text](Xnip2025-11-26_21-12-57.jpg)
+![alt text](images/Xnip2025-11-26_21-12-57.jpg)
+
+Take note of all the web action URLs
+
+## Verify `get-umapi-users` action
+
+Execute the web action for the action via curl
+
+```
+curl "https://391665-123orchidyak-stage.adobeioruntime.net/api/v1/web/brendanbc2app/get-umapi-users" | jq '{_mock, group, count, access}'
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
