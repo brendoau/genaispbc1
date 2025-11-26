@@ -202,13 +202,56 @@ At this point, any user can log in to DA and author content for this site. Addit
 
 To prove this, ask one of your bootcamp colleagues to browse to your DA authoring URL, update content and then try to preview and publish. They will be able to!
 
-For an overview of the EDS ecosystem of access control, read https://docs.da.live/administrators/guides/permissions
+For an overview of the EDS ecosystem of access control, read https://docs.da.live/administrators/guides/permissions and https://docs.da.live/administrators/guides/permissions#a-common-pitfall
+
+## Harden EDS and DA permissions
 
 ### Setup and limit the ability to preview and publish
 
-https://docs.da.live/administrators/guides/permissions#setup-and-limit-the-ability-to-preview-and-publish
+#### Obtain your auth token in order to use the AEM Admin API
 
-TODO up to here
+> For background read the following https://www.aem.live/docs/admin.html#tag/authentication
+
+Navigate to https://admin.hlx.page/login
+
+![alt text](Xnip2025-11-26_10-04-20.jpg)
+
+Follow the link to `login_adobe` ie. https://admin.hlx.page/auth/adobe
+
+Once logged in you will see a result like below
+
+![alt text](Xnip2025-11-26_10-06-06.jpg)
+
+Go to your browner's developer tools.  Under `Application` > `Cookies` > you will see the `auth_token`.  Copy this value somewhere safe.
+
+![alt text](Xnip2025-11-26_10-08-49.jpg)
+
+#### Confirm current EDS site access
+
+Perform the following via curl
+
+```
+curl 'https://admin.hlx.page/config/<ORG>/sites/<SITE>/access.json' \
+--header 'x-auth-token: <AUTH_TOKEN>'
+```
+
+The response should look something like this
+
+```
+{
+  "admin": {
+    "role": {
+      "admin": [
+        "helix-setup@adobe.com"
+      ]
+    },
+    "requireAuth": "false"
+  }
+```
+
+What this is showing is that there is no authentication set for preview and publish permission for this EDS site, which is why above any user can preview and publish from DA to EDS.
+
+> For concepts please read https://www.aem.live/docs/config-service-setup#update-access-control and https://www.aem.live/docs/authentication-setup-authoring
 
 ### Setup and limit the ability to author content
 
@@ -237,6 +280,9 @@ add the following configuration.
 | / + ** | `4E0722F969166E3E0A495F98@AdobeID` | write |
 
 ![alt text](Xnip2025-11-25_22-08-11.jpg)
+
+TODO up to here
+TOOD I JUST NUKED MY DA ACCESS BY ADDING IMS ID ONLT TO THE DA PERMISSIONS CONFIG.  GONNA NEED TO START AGAIN! :(. IT even says in the docs to use email for non-org based setups, just use email.
 
 3. Click Save (paper plane)
 
