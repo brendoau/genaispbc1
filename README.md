@@ -117,9 +117,17 @@ Click **Create your site**
 
 You end up here https://www.aem.live/developer/tutorial.  Follow this tutorial.
 
+### Create a new gmail account
+
+For the interests of the lab, please create a new gmail account.
+
+### Create a new github account
+
+For the interests of the lab, please create a github account.
+
 ### Create boilerplate GitHub repo
 
-Sign up for new github account or use an existing.
+Sign in to github account.
 
 Clone the boilerplate GitHub repo [https://github.com/adobe/aem-boilerplate](https://github.com/adobe/aem-boilerplate)
 
@@ -210,6 +218,8 @@ Navigate to https://admin.hlx.page/login
 ![alt text](images/Xnip2025-11-26_10-04-20.jpg)
 
 Follow the link to `login_adobe` ie. https://admin.hlx.page/auth/adobe
+
+> Login to `acs-apac-internal` profile if using a @adobe.com account at this point
 
 > **Important:** At this point, the only admin user for your EDS org is the GitHub user who installed the AEM Code Sync App (as mentioned earlier). You must sign in with an Adobe account that corresponds to this GitHub user. If you don't have a matching Adobe account, you will need to create one.
 
