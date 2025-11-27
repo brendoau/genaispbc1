@@ -658,3 +658,32 @@ If you are able to successfully publish then you have successfully completed the
 **Lab 1 Complete 🎉**
 ---
 
+## Lab 2: AI Asset Tagging with Azure OpenAI
+
+Ready to add AI-powered asset tagging to your application? 
+
+👉 **[Follow the detailed Lab 2 Setup Guide →](AI_ASSET_TAGGING_SETUP.md)**
+
+### Lab 2 Overview
+
+In Lab 2, you'll learn to:
+- ✅ Add AI-powered metadata generation using Azure OpenAI GPT-4 Vision
+- ✅ Integrate with AEM Cloud Service for asset processing
+- ✅ Deploy serverless actions with optimized memory and timeout settings
+- ✅ Test the AI asset tagging workflow end-to-end
+
+### What You'll Build
+
+Two new serverless actions:
+1. **`ai-asset-tagging`** - REST API endpoint for on-demand AI asset tagging
+2. **`worker`** - Asset Compute worker for batch processing
+
+The complete step-by-step guide includes:
+- Creating action folders and files
+- Updating configuration files (`app.config.yaml`, `.env`)
+- Adding required dependencies
+- Deployment commands
+- Testing instructions
+- Troubleshooting guide
+
+**[📖 Start Lab 2 Setup Guide](AI_ASSET_TAGGING_SETUP.md)**
