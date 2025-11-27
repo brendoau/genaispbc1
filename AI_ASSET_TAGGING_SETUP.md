@@ -231,13 +231,7 @@ GDAM_TOKEN={"ok":true,"integration":{...complete JSON...}}
 LOG_LEVEL=debug
 
 # EDS Configuration (existing)
-EDS_ORG=your-eds-org
-EDS_SITE=your-eds-site
-EDS_ADMIN_TOKEN=your-eds-token
-
-# UMAPI Configuration (existing)
-UMAPI_PROXY_URL=your-umapi-proxy-url
-USE_MOCK_DATA=true
+...
 ```
 
 ---
