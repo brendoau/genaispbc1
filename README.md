@@ -479,6 +479,8 @@ cd brendanbc2
 
 Bootstrap the new app using the CLI
 
+Give the app a name e.g. `brendanbc2app`
+
 ```
 aio app init brendanbc2app --standalone-app
 ```
