@@ -175,7 +175,7 @@ Navigate to `https://da.live/#/<GITHUB_USER_ID>` e.g. `da.live/#/bootcamp392`
 
 You will see your new DA site listed
 
-![alt text](Xnip2025-11-27_10-18-47.jpg)
+![alt text](images/Xnip2025-11-27_10-18-47.jpg)
 
 Click into this site
 
