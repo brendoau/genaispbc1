@@ -159,13 +159,8 @@ Add these environment variables to the `inputs:` section at the package level:
 
 ```yaml
         inputs:
-          # Existing EDS configuration
-          EDS_ORG: $EDS_ORG
-          EDS_SITE: $EDS_SITE
-          EDS_ADMIN_TOKEN: $EDS_ADMIN_TOKEN
-          UMAPI_PROXY_URL: $UMAPI_PROXY_URL
-          USE_MOCK_DATA: $USE_MOCK_DATA
-          
+          # Existing Lab 1 configuration
+          ...          
           # ADD THESE NEW VARIABLES:
           AZURE_OPENAI_API_KEY: $AZURE_OPENAI_API_KEY
           AZURE_OPENAI_ENDPOINT: $AZURE_OPENAI_ENDPOINT
