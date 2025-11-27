@@ -1,4 +1,28 @@
-# APAC C&C GenAI Sub-practice - Bootcamp 1 - Lab 1
+# APAC C&C GenAI Sub-practice - Bootcamp 1
+
+## Table of Contents
+
+- [Lab 1: DA and EDS permissions automation](#lab-1-da-and-eds-permissions-automation)
+  - [Lab 1 Overview](#lab-1-overview)
+  - [Key Resources](#key-resources)
+  - [Prerequisites](#prerequisites)
+  - [Create Document Authoring (DA) and Edge Delivery Services (EDS) AEM project](#create-document-authoring-da-and-edge-delivery-services-eds-aem-project)
+  - [Harden EDS and DA permissions](#harden-eds-and-da-permissions)
+  - [Checkpoint](#checkpoint)
+  - [Create App Builder App](#create-app-builder-app)
+  - [Implement Lab 1 Actions](#implement-lab-1-actions)
+  - [Deploy Lab 1 actions](#deploy-lab-1-actions)
+  - [Verify `get-umapi-users` action](#verify-get-umapi-users-action)
+  - [Execute `sync-umapi-to-eds` to set EDS preview and publishing permissions](#execute-sync-umapi-to-eds-to-set-eds-preview-and-publishing-permissions)
+  - [Verify EDS permissions were set](#verify-eds-permissions-were-set)
+  - [Test Publishing from DA to EDS again](#test-publishing-from-da-to-eds-again)
+- [Lab 2: AI Asset Tagging with Azure OpenAI](#lab-2-ai-asset-tagging-with-azure-openai)
+  - [Lab 2 Overview](#lab-2-overview)
+  - [What You'll Build](#what-youll-build)
+  - [📖 Start Lab 2 Setup Guide](#-start-lab-2-setup-guide)
+
+
+# Lab 1: DA and EDS permissions automation
 
 ## Lab 1 Overview
 
@@ -660,13 +684,13 @@ If you are able to successfully publish then you have successfully completed the
 **Lab 1 Complete 🎉**
 ---
 
-## Lab 2: AI Asset Tagging with Azure OpenAI
+# Lab 2: AI Asset Tagging with Azure OpenAI
 
 Ready to add AI-powered asset tagging to your application? 
 
 👉 **[Follow the detailed Lab 2 Setup Guide →](AI_ASSET_TAGGING_SETUP.md)**
 
-### Lab 2 Overview
+## Lab 2 Overview
 
 In Lab 2, you'll learn to:
 - ✅ Add AI-powered metadata generation using Azure OpenAI GPT-4 Vision
@@ -674,7 +698,7 @@ In Lab 2, you'll learn to:
 - ✅ Deploy serverless actions with optimized memory and timeout settings
 - ✅ Test the AI asset tagging workflow end-to-end
 
-### What You'll Build
+## What You'll Build
 
 Two new serverless actions:
 1. **`ai-asset-tagging`** - REST API endpoint for on-demand AI asset tagging
@@ -688,4 +712,4 @@ The complete step-by-step guide includes:
 - Testing instructions
 - Troubleshooting guide
 
-**[📖 Start Lab 2 Setup Guide](AI_ASSET_TAGGING_SETUP.md)**
+## [📖 Start Lab 2 Setup Guide](AI_ASSET_TAGGING_SETUP.md)
