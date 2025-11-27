@@ -211,6 +211,8 @@ Navigate to https://admin.hlx.page/login
 
 Follow the link to `login_adobe` ie. https://admin.hlx.page/auth/adobe
 
+> **Important:** At this point, the only admin user for your EDS org is the GitHub user who installed the AEM Code Sync App (as mentioned earlier). You must sign in with an Adobe account that corresponds to this GitHub user. If you don't have a matching Adobe account, you will need to create one.
+
 Once logged in you will see a result like below
 
 ![alt text](images/Xnip2025-11-26_10-06-06.jpg)
