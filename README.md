@@ -472,8 +472,8 @@ Give the project a title (e.g. `brendanbc2`).  Ensure you keep checked "Include 
 
 Create a folder on your local
 
-```
-mkdir 
+```bash
+mkdir brendanbc2
 cd brendanbc2
 ```
 
