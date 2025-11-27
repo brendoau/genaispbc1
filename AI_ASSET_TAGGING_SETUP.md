@@ -179,12 +179,12 @@ Edit your `.env` file and add the following variables:
 
 ```bash
 # Azure OpenAI Configuration
-AZURE_OPENAI_ENDPOINT=<<To be provided during lab session>>
+AZURE_OPENAI_ENDPOINT=https://acs-api.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2025-01-01-preview
 AZURE_OPENAI_API_KEY=<<To be provided during lab session>>
 
 # AEM/GDAM Configuration  
 AEM_TARGET_URL=https://author-p15699-e36869.adobeaemcloud.com
-GDAM_TOKEN={"ok":true,"integration":{"imsEndpoint":"ims-na1.adobelogin.com","metascopes":"ent_aem_cloud_api","technicalAccount":{"clientId":"your-client-id","clientSecret":"your-client-secret"},"email":"your-tech-account@techacct.adobe.com","id":"your-tech-account-id","org":"YOUR_ORG_ID@AdobeOrg","privateKey":"-----BEGIN RSA PRIVATE KEY-----\nYOUR_PRIVATE_KEY\n-----END RSA PRIVATE KEY-----\n"}}
+
 
 # Logging Level
 LOG_LEVEL=debug
@@ -220,7 +220,7 @@ AIO_runtime_namespace=YOUR_NAMESPACE
 AIO_runtime_apihost=https://adobeioruntime.net
 
 # Azure OpenAI Configuration
-AZURE_OPENAI_ENDPOINT=https://acs-api.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2025-01-01-preview
+AZURE_OPENAI_ENDPOINT=<your api key>
 AZURE_OPENAI_API_KEY=<your api key>
 
 # AEM/GDAM Configuration
@@ -297,46 +297,107 @@ aio runtime action get genaispbc1/ai-asset-tagging --url
 
 ```bash
 Use the postman collection provided to test the integration.
+
+Or just hit the curl command:
+
+curl --location 'https://391665-207tancrayfish-development.adobeioruntime.net/api/v1/web/genaispbc1/ai-asset-tagging' \
+--header 'Content-Type: application/json' \
+--data '{
+  "assetPath": "/content/dam/bootcamp/sample-psd-files9.psd",
+  "aemInstanceUrl": "https://author-p106442-e1666219.adobeaemcloud.com",
+  "accessToken": "<<access token to be provided>>",
+  "promptConfigs": {
+    "namespace": {
+      "aigen": "http://ns.adobe.com/xap/1.0/aigen/"
+    },
+    "aigenDescription": "Analyze the image then generate a 50-word description in Australian English, incorporating details of the text overlay; for regular photos, the description needs to have good phrases for semantic search.",
+    "aigenKeywords": "Generate relevant and descriptive keywords in a string array for supermarket-related images in Australian English. The keywords should be based on the content, themes, and context of the image. Include the following considerations: Main Subjects: Key objects, people, or elements in the image. Identify the branch based on the main colours used in the image such as orange colour is for Everyday, Blue is for Big W and green is for Woolworths. For food packages with a visible logo, include keywords such as '\''Woolworths Food Company,'\'' '\''WFC,'\'' or '\''Owned brand.'\'' For food or meal photos, categorize based on: Cuisine Type: e.g., Italian cuisine, vegetarian, plant-based. Meal Type/Occasion: e.g., lunch, dinner, family dinner, light meal. Dish Characteristics: e.g., Bolognese, oven-baked, roasted vegetables. For employee uniforms, describe attire such as '\''apron,'\'' '\''polo,'\'' '\''vest,'\'' '\''jacket,'\'' or '\''hi-vis.'\'' For seasonal festival images, include keywords like '\''Easter'\'' for Easter eggs or '\''Christmas'\'' for tinsel. If a name badge is visible, include keywords like '\''name badge'\'' and '\''BigW.'\'' Setting and Environment: Describe where the scene takes place and its broader context (e.g., outdoor, studio, supermarket). Actions or Interactions: Describe activities or interactions occurring in the image (e.g., shopping, holding, preparing). Visual Style and Composition: Mention photographic perspective, mood, and color schemes (e.g., overhead shot, close-up, bright colors). Relevant Themes: Include related concepts or use cases (e.g., comfort food, healthy eating, family interaction, customer engagement). Text Overlay: Identify overlay text present in the image. Orientation: Mention orientation of the image such as '\''top-down view.'\'' Licensed Characters: If visible, include keywords for licensed characters such as '\''Hello Kitty'\'' or '\''Spiderman.'\'' Store Department: Identify the store department for woolworths brand only visible in the image such as '\''deli,'\'' '\''seafood,'\'' '\''fresh,'\'' '\''party section,'\'' etc. Specific Food or Meat Types: Recognize and categorize food types such as '\''meat,'\'' '\''mince,'\'' '\''vegetables,'\'' but do not use meat name such as lamb, beef, etc for mince meat type. Assign these keywords to the aigen_keywords property.",
+    "aigenBrand": "If the brand name or logo is clearly visible on the product, or a unique pattern for a brand is used, use that to assign the brand tag.",
+    "aigenTitle": "Analyze the image then generate a 7-word title in Australian English.",
+    "aigenConfidence": "Assign a confidence value. The confidence value represents a percentage that indicates the system'\''s level of certainty in the tagging results."
+  }
+}'
+
 ```
 
 ### 6.2 Expected Response
 
 ```json
 {
-  "status": "success",
-  "assetPath": "/content/dam/your-folder/test-image.jpg",
-  "updatedProperties": [
-    "dc:subject",
-    "product:category",
-    "product:color",
-    "aigen:status"
-  ],
-  "propertiesCount": 4,
-  "processingTimeMs": 2500,
-  "timestamp": "2025-11-26T10:30:00.000Z",
+  "assetPath": "/content/dam/bootcamp/sample-psd-files9.psd",
   "debugLogs": [
-    "Step 1 - Building prompt",
+    "[INFO] === AI Asset Tagging Started ===",
+    "[INFO] Step 0 - Input validation",
+    "Step 0 - Input validation",
+    "[INFO] Processing asset: /content/dam/bootcamp/sample-psd-files9.psd",
+    "[INFO] Using AEM instance: https://author-p106442-e1666219.adobeaemcloud.com",
+    "[INFO] Step 1 - Building prompt from request parameters",
+    "Step 1 - Building prompt from request parameters",
+    "[INFO] Generated prompt length: 3111 characters",
+    "[INFO] Step 2 - Download rendition from AEM",
     "Step 2 - Download rendition from AEM",
-    "Step 3 - Save to temp file",
+    "Available renditions to try: 4",
+    "Trying rendition 1: /jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
+    "RenditionURL : https://author-p106442-e1666219.adobeaemcloud.com/content/dam/bootcamp/sample-psd-files9.psd/jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
+    "Response: 200 OK for /jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
+    "SUCCESS: Using rendition /jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
+    "Download completed: 332071 bytes from /jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
+    "[INFO] Rendition downloaded successfully: 332071 bytes (image/jpeg)",
+    "[INFO] Used rendition: /jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
+    "Used rendition: /jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
+    "[INFO] Step 3 - Save rendition to local storage",
+    "Step 3 - Save rendition to local storage",
+    "[INFO] File saved to local storage: /tmp/sample-psd-files9_1764212944567.jpeg",
+    "[INFO] Step 4 - Convert to base64: /tmp/sample-psd-files9_1764212944567.jpeg",
     "Step 4 - Convert to base64",
+    "[INFO] Base64 conversion complete: 442764 characters",
+    "[INFO] Step 5 - Process with Azure OpenAI",
     "Step 5 - Process with Azure OpenAI",
+    "[INFO] Properties from AI: {\"aigenBrand\":null,\"aigenConfidence\":85,\"aigenDescription\":\"A stunning outdoor landscape featuring illuminated blue light trails across a grassy field under a vibrant twilight sky with star streaks. The scene captures a serene and artistic atmosphere, blending natural beauty with creative light effects. Trees line the horizon, adding depth and contrast to the composition.\",\"aigenKeywords\":[\"outdoor\",\"landscape\",\"light trails\",\"twilight sky\",\"star streaks\",\"grassy field\",\"artistic\",\"serene\",\"creative lighting\",\"nature\"],\"aigenTitle\":\"Illuminated field under twilight starry sky\"}",
+    "[INFO] Step 6 - Update AEM metadata",
     "Step 6 - Update AEM metadata",
-    "SUCCESS"
+    "[INFO] PRIMARY: Attempting Assets HTTP API update...",
+    "Starting Assets HTTP API metadata update for: /content/dam/bootcamp/sample-psd-files9.psd",
+    "Assets API metadata update attempt 1/3",
+    "Updating asset metadata using Assets HTTP API for asset: sample-psd-files9.psd",
+    "Assets HTTP API Update URL: https://author-p106442-e1666219.adobeaemcloud.com/api/assets/bootcamp/sample-psd-files9.psd",
+    "Processing metadata field: aigenBrand -> metadata/aigenBrand",
+    "Processing metadata field: aigenConfidence -> metadata/aigenConfidence",
+    "Processing metadata field: aigenDescription -> metadata/aigenDescription",
+    "Processing metadata field: aigenKeywords -> metadata/aigenKeywords",
+    "Processing metadata field: aigenTitle -> metadata/aigenTitle",
+    "Processing metadata field: aigen:status -> metadata/aigen:status",
+    "Processing metadata: 6 properties with metadata/ prefix",
+    "Assets HTTP API response: 200 OK",
+    "Response body received: 411 chars",
+    "JSON response parsed successfully",
+    "Assets HTTP API metadata update successful",
+    "Assets API metadata update completed successfully",
+    "[INFO] SUCCESS: Assets HTTP API update completed successfully",
+    "AI Asset Tagging processed in 8430 milliseconds for /content/dam/bootcamp/sample-psd-files9.psd",
+    "[INFO] AI Asset Tagging processed in 8430 milliseconds for /content/dam/bootcamp/sample-psd-files9.psd",
+    "[INFO] Metadata updated successfully",
+    "[INFO] AI Asset Tagging processed in 8430 milliseconds for /content/dam/bootcamp/sample-psd-files9.psd",
+    "STEP 7: === AI Asset Tagging Completed Successfully ===",
+    "[INFO] Step 8 - Clean up temp files",
+    "Step 8 - Clean up temp files",
+    "[INFO] AI Asset Tagging processed in 8431 milliseconds for /content/dam/bootcamp/sample-psd-files9.psd",
+    "AI Asset Tagging processed in 8431 milliseconds for /content/dam/bootcamp/sample-psd-files9.psd",
+    "[INFO] === AI Asset Tagging END ==="
+  ],
+  "processingTimeMs": 8430,
+  "propertiesCount": 6,
+  "status": "success",
+  "timestamp": "2025-11-27T03:09:12.749Z",
+  "updatedProperties": [
+    "aigenBrand",
+    "aigenConfidence",
+    "aigenDescription",
+    "aigenKeywords",
+    "aigenTitle",
+    "aigen:status"
   ]
-}
-```
-
-### 6.3 View Logs
-
-```bash
-# View latest activation
-aio runtime activation list --limit 1
-
-# View logs for last activation
-aio runtime activation logs --last
-
-# Get specific activation details
-aio runtime activation get <ACTIVATION_ID>
+}  
 ```
 
 ---
