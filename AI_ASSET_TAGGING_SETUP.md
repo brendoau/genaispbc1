@@ -179,7 +179,7 @@ Edit your `.env` file and add the following variables:
 
 ```bash
 # Azure OpenAI Configuration
-AZURE_OPENAI_ENDPOINT=https://acs-api.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2025-01-01-preview
+AZURE_OPENAI_ENDPOINT=<<To be provided during lab session>>
 AZURE_OPENAI_API_KEY=<<To be provided during lab session>>
 
 # AEM/GDAM Configuration  
