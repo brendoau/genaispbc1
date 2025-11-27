@@ -165,8 +165,6 @@ Navigate to https://da.live.
 
 Click Sign in
 
-![alt text](images/Xnip2025-11-25_19-59-36.jpg)  
-
 > **Important:** At this point, the only admin user for your EDS org is the GitHub user who installed the AEM Code Sync App (as mentioned earlier). You must sign in with an Adobe account that corresponds to this GitHub user. If you don't have a matching Adobe account, you will need to create one.
 
 ![alt text](images/Xnip2025-11-25_22-00-06.jpg)
