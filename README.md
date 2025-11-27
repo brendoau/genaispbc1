@@ -143,15 +143,18 @@ You end up here https://www.aem.live/developer/tutorial.  Follow this tutorial.
 
 ### Create a new chrome profile
 
-For the interests of the lab, please create a new chrome profile.
+For the interests of the lab, please create a new chrome profile.  This makes life easier in regards to login tokens etc.
 
-### Create a new gmail account
+### Create a new google account
 
-For the interests of the lab, please create a new gmail account.
+For the interests of the lab, please create a new google account.
 
 ### Create a new github account
 
-For the interests of the lab, please create a github account.
+For the interests of the lab, please create a new github account.  Create using the google account above.
+
+![alt text](images/Xnip2025-11-28_07-49-52.jpg)
+
 
 ### Create boilerplate GitHub repo
 
@@ -247,7 +250,9 @@ Navigate to https://admin.hlx.page/login
 
 Follow the link to `login_adobe` ie. https://admin.hlx.page/auth/adobe
 
-> **Important:** At this point, the only admin user for your EDS org is the GitHub user who installed the AEM Code Sync App (as mentioned earlier). You must sign in with an Adobe account that corresponds to this GitHub user. If you don't have a matching Adobe account, you will need to create one.
+> **Important:** At this point, the only admin user for your EDS org is the GitHub user who installed the AEM Code Sync App (as mentioned earlier). You must sign in with an Adobe account that corresponds to this GitHub user. Create a new account, using the new google account you created above.
+
+![alt text](images/Xnip2025-11-28_07-51-10.jpg)
 
 Once logged in you will see a result like below
 
