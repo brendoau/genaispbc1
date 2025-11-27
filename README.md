@@ -117,6 +117,10 @@ Click **Create your site**
 
 You end up here https://www.aem.live/developer/tutorial.  Follow this tutorial.
 
+### Create a new chrome profile
+
+For the interests of the lab, please create a new chrome profile.
+
 ### Create a new gmail account
 
 For the interests of the lab, please create a new gmail account.
