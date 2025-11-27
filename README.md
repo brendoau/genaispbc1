@@ -159,25 +159,13 @@ As part of the process you just followed, an `aem.live` EDS org with the same na
 
 ### Edit, Preview and Publish Content in Document Authoring
 
-Navigate to https://da.live.
+Navigate to https://da.live/#/<GITHUB_USER_ID> e.g. da.live/#/mnitinasts
 
-![alt text](images/Xnip2025-11-25_20-49-00.jpg)
+You will see your new DA site listed
 
-Click Sign in
+![alt text](Xnip2025-11-27_10-18-47.jpg)
 
-> **Important:** At this point, the only admin user for your EDS org is the GitHub user who installed the AEM Code Sync App (as mentioned earlier). You must sign in with an Adobe account that corresponds to this GitHub user. If you don't have a matching Adobe account, you will need to create one.
-
-![alt text](images/Xnip2025-11-25_22-00-06.jpg)
-
-Enter the URL for your site to get started - in the format https://main--site--org.aem.page as your created EDS site URL above.  Click ->
-
-![alt text](images/Xnip2025-11-25_21-02-05.jpg)
-
-If already have other recent DA sites, then enter the EDS site URL as shown below.  Click ->
-
-![alt text](images/Xnip2025-11-25_21-06-32.jpg)
-
-You will now see the DA authoring page for your site
+Click into this site
 
 ![alt text](images/Xnip2025-11-25_21-04-09.jpg)
 
