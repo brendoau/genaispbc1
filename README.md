@@ -159,7 +159,7 @@ As part of the process you just followed, an `aem.live` EDS org with the same na
 
 ### Edit, Preview and Publish Content in Document Authoring
 
-Navigate to https://da.live/#/<GITHUB_USER_ID> e.g. da.live/#/mnitinasts
+Navigate to `https://da.live/#/<GITHUB_USER_ID>` e.g. `da.live/#/mnitinasts`
 
 You will see your new DA site listed
 
