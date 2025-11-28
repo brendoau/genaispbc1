@@ -20,6 +20,7 @@
   - [Lab 2 Overview](#lab-2-overview)
   - [What You'll Build](#what-youll-build)
   - [📖 Start Lab 2 Setup Guide](#-start-lab-2-setup-guide)
+- [Solution](#-solution)
 
 
 # Lab 1: DA and EDS permissions automation
@@ -718,3 +719,7 @@ The complete step-by-step guide includes:
 - Troubleshooting guide
 
 ## [📖 Start Lab 2 Setup Guide](AI_ASSET_TAGGING_SETUP.md)
+
+# Solution
+
+If you get stuck and want to refer to a fully setup App Builder app for Lab 1 and Lab 2, please look at the `solution` folder in the `solution` branch 🚑
