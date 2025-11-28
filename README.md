@@ -20,7 +20,7 @@
   - [Lab 2 Overview](#lab-2-overview)
   - [What You'll Build](#what-youll-build)
   - [📖 Start Lab 2 Setup Guide](#-start-lab-2-setup-guide)
-- [Solution](#-solution)
+- [Solution](#solution)
 
 
 # Lab 1: DA and EDS permissions automation
@@ -718,7 +718,9 @@ The complete step-by-step guide includes:
 - Testing instructions
 - Troubleshooting guide
 
-## [📖 Start Lab 2 Setup Guide](AI_ASSET_TAGGING_SETUP.md)
+## 📖 Start Lab 2 Setup Guide
+
+[Follow the detailed Lab 2 Setup Guide →](AI_ASSET_TAGGING_SETUP.md)
 
 # Solution
 
